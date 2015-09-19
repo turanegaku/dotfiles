@@ -1,0 +1,20 @@
+[user]
+	name = turanegaku
+	email = turanegaku@gmail.com
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	grep = auto
+[alias]
+	st = status
+	cm = commit -m
+	bn = branch
+	chk = checkout
+	chkb = checkout -b
+	cancel = reset --soft HEAD~
+	back = reset --hard HEAD~
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[credential]
+	helper = cache
+	helper = cache
