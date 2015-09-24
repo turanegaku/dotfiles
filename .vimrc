@@ -41,10 +41,10 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-inoremap { {}<Left>
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap < <><Left>
-inoremap " ""<Left>
-inoremap ' ''<Left>
-inoremap ` ``<Left>
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+inoremap <> <><Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap `` ``<Left>
