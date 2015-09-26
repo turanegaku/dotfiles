@@ -83,6 +83,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -e ~/caffe ] ; then
+if [ -e "${HOME}/caffe" ] ; then
   export PYTHONPATH=~/caffe/python/:$PYTHONPATH
 fi
+
+if [[ -f ~/.nvm/nvm.sh ]]; then
+  source ~/.nvm/nvm.sh
+
+  if which nvm >/dev/null 2>&1 ;then
+    _nodejs_use_version="v0.12.7"
+    if nvm ls | grep -F -e "${_nodejs_use_version}" >/dev/null 2>&1 ;then
+      nvm use "${_nodejs_use_version}" >/dev/null
+      export NODE_PATH=${NVM_PATH}_modules${NODE_PATH:+:}${NODE_PATH}
+    fi
+    unset _nodejs_use_version
+  fi
+fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
