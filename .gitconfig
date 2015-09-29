@@ -8,6 +8,7 @@
 	grep = auto
 [alias]
 	st = status
+  ad = add
 	cm = commit -m
 	bn = branch
 	chk = checkout
