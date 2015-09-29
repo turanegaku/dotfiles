@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH=${HOME}/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -91,7 +91,7 @@ if [[ -f ~/.nvm/nvm.sh ]]; then
   source ~/.nvm/nvm.sh
 
   if which nvm >/dev/null 2>&1 ;then
-    _nodejs_use_version="v0.12.7"
+    _nodejs_use_version="default"
     if nvm ls | grep -F -e "${_nodejs_use_version}" >/dev/null 2>&1 ;then
       nvm use "${_nodejs_use_version}" >/dev/null
       export NODE_PATH=${NVM_PATH}_modules${NODE_PATH:+:}${NODE_PATH}
