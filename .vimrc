@@ -13,6 +13,7 @@ set ignorecase
 set smartcase
 set hidden
 set history=2000
+set noswapfile
 set autoindent
 set expandtab
 set tabstop=2
