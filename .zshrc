@@ -87,17 +87,9 @@ if [ -e "${HOME}/caffe" ] ; then
   export PYTHONPATH=~/caffe/python/:$PYTHONPATH
 fi
 
-if [[ -f ~/.nvm/nvm.sh ]]; then
-  source ~/.nvm/nvm.sh
-
-  if which nvm >/dev/null 2>&1 ;then
-    _nodejs_use_version="default"
-    if nvm ls | grep -F -e "${_nodejs_use_version}" >/dev/null 2>&1 ;then
-      nvm use "${_nodejs_use_version}" >/dev/null
-      export NODE_PATH=${NVM_PATH}_modules${NODE_PATH:+:}${NODE_PATH}
-    fi
-    unset _nodejs_use_version
-  fi
+if [[ -f "${HOME}/.nodebrew/nodebrew" ]]; then
+  export PATH=$HOME/.nodebrew/current/bin:$PATH
+  nodebrew use 0.12.7
 fi
 
 ### Added by the Heroku Toolbelt
