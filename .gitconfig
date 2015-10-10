@@ -11,8 +11,8 @@
   ad = add
 	cm = commit -m
 	bn = branch
-	chk = checkout
-	chkb = checkout -b
+	co = checkout
+	cob = checkout -b
 	cancel = reset --soft HEAD~
 	back = reset --hard HEAD~
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
