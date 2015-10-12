@@ -36,6 +36,8 @@ nnoremap ZQ <Nop>
 nnoremap Q <Nop>
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 inoremap jk <Esc>
 inoremap <silent> <C-d> <C-g>u<C-h>
