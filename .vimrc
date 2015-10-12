@@ -34,6 +34,8 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
+nnoremap ; :
+nnoremap : ;
 
 inoremap jk <Esc>
 inoremap <silent> <C-d> <C-g>u<C-h>
