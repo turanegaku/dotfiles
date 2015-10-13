@@ -1,4 +1,23 @@
-filetype indent on
+set nocompatible
+filetype off
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+call neobundle#begin(expand('~/.vim/bundle'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'unix' : 'make -f make_unix.mak',
+      \ },
+      \ }
+NeoBundle 'Townk/vim-autoclose'
+call neobundle#end()
+
+
+filetype plugin indent on
 
 set number
 set ruler
@@ -43,11 +62,3 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
-inoremap {} {}<Left>
-inoremap [] []<Left>
-inoremap () ()<Left>
-inoremap <> <><Left>
-inoremap "" ""<Left>
-inoremap '' ''<Left>
-inoremap `` ``<Left>
