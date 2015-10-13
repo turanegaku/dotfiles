@@ -44,6 +44,8 @@ set shiftwidth=2
 set helplang=en
 set laststatus=2
 set t_Co=256
+set cursorline
+autocmd ColorScheme * hi CursorLine ctermbg=234 cterm=NONE
 
 set background=dark
 colorscheme elflord
