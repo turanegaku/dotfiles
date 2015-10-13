@@ -6,7 +6,7 @@ if has('vim_starting')
 endif
 call neobundle#begin(expand('~/.vim/bundle'))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \ 'cygwin' : 'make -f make_cygwin.mak',
@@ -14,6 +14,10 @@ NeoBundle 'Shougo/vimproc', {
       \ },
       \ }
 NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'solarized'
+      \ }
 call neobundle#end()
 
 
@@ -38,7 +42,10 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set helplang=en
+set laststatus=2
+set t_Co=256
 
+set background=dark
 colorscheme elflord
 syntax on
 
