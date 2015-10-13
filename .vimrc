@@ -18,6 +18,8 @@ NeoBundle 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'solarized'
       \ }
+NeoBundle 'tyru/caw.vim.git'
+map <C-k> <Plug>(caw:i:toggle)
 call neobundle#end()
 
 
@@ -67,7 +69,5 @@ noremap : ;
 
 inoremap jk <Esc>
 inoremap <silent> <C-d> <C-g>u<C-h>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
