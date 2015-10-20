@@ -71,3 +71,13 @@ inoremap jk <Esc>
 inoremap <silent> <C-d> <C-g>u<C-h>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
+
+nnoremap s <NOP>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap ss :<C-u>sp<CR><C-w>j:e<Space>
+nnoremap sv :<C-u>vs<CR><C-w>l
+nnoremap sq <C-w>c
+nnoremap se :edit<Space>
