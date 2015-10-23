@@ -53,9 +53,6 @@ set background=dark
 colorscheme elflord
 syntax on
 
-noremap y y:wx<CR>
-noremap p :rv!<CR>p
-
 noremap <Space>h ^
 noremap <Space>l $
 
