@@ -101,3 +101,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Added go lang
 export PATH="$PATH:/usr/local/go/bin"
+
+alias g++11='g++ -std=c++11'
