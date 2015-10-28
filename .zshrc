@@ -1,10 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=${HOME}/.oh-my-zsh
 
-if [[ -f "${HOME}/.zshprofile" ]]; then
-  source "${HOME}/.zshprofile"
-fi
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -100,6 +96,11 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Added go lang
-export PATH="$PATH:/usr/local/go/bin"
+# export PATH="$PATH:/usr/local/go/bin"
 
 alias g++11='g++ -std=c++11'
+
+if [[ -f "${HOME}/.zshprofile" ]]; then
+  source "${HOME}/.zshprofile"
+fi
+
