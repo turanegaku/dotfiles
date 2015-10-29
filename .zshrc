@@ -104,3 +104,5 @@ if [[ -f "${HOME}/.zshprofile" ]]; then
   source "${HOME}/.zshprofile"
 fi
 
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
