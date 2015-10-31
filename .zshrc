@@ -49,7 +49,7 @@ ZSH_THEME="ys"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew pip)
+plugins=(git brew pip golang)
 
 # User configuration
 
@@ -97,7 +97,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 ### Added go lang
 # export PATH="$PATH:/usr/local/go/bin"
-export GOPATH="$HOME/go"
+if [ -x "`which go`" ]; then
+  export GOPATH="$HOME/go"
+fi
 
 alias g++11='g++ -std=c++11'
 
