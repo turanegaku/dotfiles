@@ -102,6 +102,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # export PATH="$PATH:/usr/local/go/bin"
 if [ -x "`which go`" ]; then
   export GOPATH="$HOME/go"
+  export PATH=$PATH:$GOPATH/bin
 fi
 
 alias g++11='g++ -std=c++11'
