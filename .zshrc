@@ -86,6 +86,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+bindkey "^P" up-line-or-search
+
 if [ -e "${HOME}/caffe" ] ; then
   export PYTHONPATH=~/caffe/python/:$PYTHONPATH
 fi
