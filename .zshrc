@@ -60,6 +60,35 @@ alias gcm='git checkout master'
 alias gd='git diff'
 alias gs='git status'
 
+# Configuration
+#
+limit coredumpsize 102400
+setopt prompt_subst
+setopt nobeep
+setopt long_list_jobs
+setopt list_types
+setopt auto_resume
+setopt auto_list
+setopt hist_ignore_dups
+setopt autopushd
+setopt pushd_ignore_dups
+setopt extended_glob
+setopt auto_menu
+setopt extended_history
+setopt equals
+setopt magic_equal_subst
+setopt hist_verify
+setopt numeric_glob_sort
+setopt print_eight_bit
+setopt share_history
+setopt auto_cd
+setopt auto_param_keys
+setopt auto_param_slash
+setopt correct
+setopt noautoremoveslash
+setopt complete_aliases
+setopt glob_complete
+
 # Prompt
 #
 __git_files() { _files }
