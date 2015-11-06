@@ -1,5 +1,3 @@
-# Created by newuser for 5.1.1
-
 export PATH=/usr/local/bin:$PATH
 
 autoload -U compinit
@@ -42,6 +40,7 @@ zstyle ':completion::*:(-command-|export):*' fake-parameters ${${${_comps[(I)-va
 zstyle ':completion:::::' completer _complete _approximate
 
 # Aliases
+#
 alias -g L='| less'
 alias -g G='| grep'
 alias l='ls -lah'
@@ -61,7 +60,43 @@ alias gcm='git checkout master'
 alias gd='git diff'
 alias gs='git status'
 
+# Prompt
+#
+__git_files() { _files }
+autoload -Uz add-zsh-hook
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg bzr
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
+zstyle ':vcs_info:bzr:*' use-simple true
+autoload -Uz is-at-least
+if is-at-least 4.3.10; then
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' stagedstr "^"
+  zstyle ':vcs_info:git:*' unstagedstr "*"
+  zstyle ':vcs_info:git:*' formats '%s:%b %c%u '
+  zstyle ':vcs_info:git:*' actionformats '%s:%b|%a %c%u'
+fi
+function _update_vcs_info_msg() {
+  psvar=()
+  LANG=en_US.UTF-8 vcs_info
+  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+add-zsh-hook precmd _update_vcs_info_msg
+PROMPT="
+%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
+%{$terminfo[bold]$fg[yellow]%}%~ \
+%{$fg[cyan]%}%n \
+%{$fg[white]%}at \
+%{$fg[green]%}%m \
+%{$fg[white]%}on \
+%1(v|%1v%f|)%{$reset_color%}\
+%{$fg[white]%}[%*]
+%{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
+
 # Paths
+#
 if [ -x "`which go`" ]; then
   export GOPATH="$HOME/go"
   export PATH=$PATH:$GOPATH/bin
