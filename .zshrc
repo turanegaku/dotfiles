@@ -57,7 +57,7 @@ alias g++11='g++ -std=c++11'
 alias g=git
 alias ga='git add'
 alias gb='git branch'
-alias gc='git commit -m'
+alias gm='git commit -m'
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gcm='git checkout master'
