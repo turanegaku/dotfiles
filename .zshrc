@@ -50,6 +50,7 @@ alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
 alias ls='ls -G'
+alias grep='grep --color'
 alias t=tmux
 alias v=vi
 alias g++11='g++ -std=c++11'
@@ -62,8 +63,6 @@ alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gd='git diff'
 alias gs='git status'
-compdef g=git
-compdef t=tmux
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
@@ -95,6 +94,7 @@ setopt correct
 setopt noautoremoveslash
 setopt complete_aliases
 setopt glob_complete
+setopt no_complete_aliases
 
 # Prompt
 #
