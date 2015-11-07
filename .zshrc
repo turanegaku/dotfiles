@@ -1,5 +1,8 @@
 export PATH=/usr/local/bin:$PATH
 
+if [ -e /usr/local/share/zsh-completions ]; then
+  fpath=(/usr/local/share/zsh-completions $fpath)
+fi
 autoload -U compinit
 compinit -u
 autoload -Uz colors ; colors
@@ -59,6 +62,10 @@ alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gd='git diff'
 alias gs='git status'
+compdef g=git
+compdef t=tmux
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 
 # Configuration
 #
@@ -104,7 +111,7 @@ if is-at-least 4.3.10; then
   zstyle ':vcs_info:git:*' check-for-changes true
   zstyle ':vcs_info:git:*' stagedstr "^"
   zstyle ':vcs_info:git:*' unstagedstr "*"
-  zstyle ':vcs_info:git:*' formats '%s:%b %c%u '
+  zstyle ':vcs_info:git:*' formats 'on %s:%b %c%u '
   zstyle ':vcs_info:git:*' actionformats '%s:%b|%a %c%u'
 fi
 function _update_vcs_info_msg() {
@@ -119,7 +126,6 @@ PROMPT="
 %{$fg[cyan]%}%n \
 %{$fg[white]%}at \
 %{$fg[green]%}%m \
-%{$fg[white]%}on \
 %1(v|%1v%f|)%{$reset_color%}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
