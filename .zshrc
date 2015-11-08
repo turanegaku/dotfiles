@@ -46,6 +46,7 @@ zstyle ':completion:::::' completer _complete _approximate
 #
 alias -g L='| less'
 alias -g G='| grep'
+alias -g P='| peco'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
@@ -63,6 +64,12 @@ alias gcb='git checkout -b'
 alias gcm='git checkout master'
 alias gd='git diff'
 alias gs='git status'
+function peco-history-selection() {
+  BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
+  CURSOR=$#BUFFER zle reset-prompt 
+}
+zle -N peco-history-selection 
+bindkey '^R' peco-history-selection
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
