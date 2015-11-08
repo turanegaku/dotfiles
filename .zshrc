@@ -133,7 +133,7 @@ PROMPT="
 %{$fg[cyan]%}%n \
 %{$fg[white]%}at \
 %{$fg[green]%}%m \
-%1(v|%1v%f|)%{$reset_color%}\
+%{$fg[white]%}%1(v|%1v%f|)%{$reset_color%}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 
