@@ -46,7 +46,7 @@ zstyle ':completion:::::' completer _complete _approximate
 #
 alias -g L='| less'
 alias -g G='| grep'
-alias -g P='| peco'
+alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
 alias l='ls -lah'
 alias la='ls -lAh'
 alias ll='ls -lh'
