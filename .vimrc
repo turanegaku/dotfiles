@@ -70,6 +70,7 @@ set laststatus=2
 set t_Co=256
 set cursorline
 " autocmd ColorScheme * hi CursorLine ctermbg=235 cterm=NONE
+autocmd ColorScheme * hi LineNr ctermfg=245
 
 set background=dark
 colorscheme hybrid
