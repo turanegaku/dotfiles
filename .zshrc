@@ -56,14 +56,17 @@ alias t=tmux
 alias v=vi
 alias g++11='g++ -std=c++11'
 alias g=git
-alias ga='git add'
-alias gn='git branch'
-alias gm='git commit -m'
-alias gco='git checkout'
-alias gcb='git checkout -b'
-alias gcm='git checkout master'
-alias gd='git diff'
-alias gs='git status'
+alias ga='g add'
+alias gn='g branch'
+alias gm='g commit -m'
+alias gma='g commit --amend'
+alias gc='g checkout'
+alias gb='g checkout -b'
+alias gcm='g checkout master'
+alias gd='g diff'
+alias gdc='g diff --cached'
+alias gs='g status'
+alias gl="g log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 function peco-history-selection() {
   BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
   CURSOR=$#BUFFER zle reset-prompt 
