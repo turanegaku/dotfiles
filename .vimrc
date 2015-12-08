@@ -109,8 +109,7 @@ nnoremap <S-f> :call UncrustifyAuto()<CR>
 autocmd BufWritePre <buffer> :call UncrustifyAuto()
 
 " uncrustifyの設定ファイル
-" let g:uncrustify_cfg_file_path = '~/.uncrustifyconfig'
-let g:uncrustify_cfg_file_path = '~/cpp.cfg'
+let g:uncrustify_cfg_file_path = '~/.uncrustifyconfig'
 
 " uncrustifyでフォーマットする言語
 let g:uncrustify_lang = ""
