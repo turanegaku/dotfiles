@@ -93,9 +93,8 @@ noremap ; :
 noremap : ;
 
 inoremap jk <Esc>
-inoremap <silent> <C-d> <C-g>u<C-h>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 
 vnoremap s !sort<CR>
 
