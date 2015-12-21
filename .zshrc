@@ -54,6 +54,7 @@ alias ls='ls -G'
 alias grep='grep --color'
 alias t=tmux
 alias v=vi
+alias ti=tig
 alias g++11='g++ -std=c++11'
 alias g=git
 alias ga='g add'
