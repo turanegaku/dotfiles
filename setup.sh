@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOT_FILES=(.gitconfig .tmux.conf .vimperatorrc .vimrc .zshrc .uncrustifyconfig .vrapperrc)
+DOT_FILES=(.gitconfig .tmux.conf .vimperatorrc .vimrc .zshrc .uncrustifyconfig .vrapperrc .tigrc)
 
 for file in ${DOT_FILES[@]}; do
   if [[ -e $HOME/$file ]]; then pmd5=`md5 -q $HOME/$file`; fi
