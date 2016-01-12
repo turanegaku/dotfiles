@@ -22,6 +22,6 @@
 	helper = cache
 [core]
 	editor = vim -c \"set fenc=utf-8\"
-  excludesfile = ~/dotfiles/.gitignore
+	excludesfile = ~/dotfiles/.gitignore
 [push]
 	default = simple
