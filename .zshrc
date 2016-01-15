@@ -69,6 +69,8 @@ alias gd='g diff --color-words'
 alias gdc='gd --cached'
 alias gs='g status'
 alias gl="g log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gp="g push"
+alias gg="g merge --no-ff"
 function peco-history-selection() {
   BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
   CURSOR=$#BUFFER zle reset-prompt 
