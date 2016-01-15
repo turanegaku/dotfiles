@@ -4,3 +4,13 @@ noremap ; :
 noremap : ;
 
 inoremap jk <ESC>
+
+inoremap <C-a> <Esc>0i
+inoremap <C-e> <Esc>:LineEnd<CR>a
+
+inoremap <C-f> <Esc><Right>a
+inoremap <C-b> <Esc>i
+
+inoremap <C-h> <BS>
+inoremap <C-d> <Esc><Right>xi
+inoremap <C-k> <Esc><Right>:DeleteLineToEnd<CR>i
