@@ -25,3 +25,5 @@
 	excludesfile = ~/dotfiles/.gitignore
 [push]
 	default = simple
+[pull]
+	rebase = preserve
