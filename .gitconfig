@@ -27,3 +27,5 @@
 	default = simple
 [pull]
 	rebase = preserve
+[merge]
+	ff = false
