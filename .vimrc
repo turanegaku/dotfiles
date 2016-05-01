@@ -82,6 +82,7 @@ noremap <Space>h ^
 noremap <Space>l $
 
 nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+
 nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
 nnoremap <Esc><Esc> :nohlsearch<CR>
@@ -89,6 +90,8 @@ nnoremap <Esc><Esc> :nohlsearch<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
+nnoremap q <Nop>
+nnoremap dw daw
 noremap ; :
 noremap : ;
 
