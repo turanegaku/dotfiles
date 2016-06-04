@@ -53,6 +53,7 @@ alias ll='ls -lh'
 alias ls='ls -G'
 alias grep='grep --color'
 alias t=tmux
+alias ta='t a -t'
 alias v=vi
 alias ti=tig
 alias g++11='g++ -std=c++11'
