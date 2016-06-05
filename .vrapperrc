@@ -14,3 +14,8 @@ inoremap <C-b> <Esc>i
 inoremap <C-h> <BS>
 inoremap <C-d> <Esc><Right>xi
 inoremap <C-k> <Esc><Right>:DeleteLineToEnd<CR>i
+
+" tab
+nnoremap gr gT"
+noremap <C-n> gt
+noremap <C-p> gT
