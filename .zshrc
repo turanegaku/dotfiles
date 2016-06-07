@@ -69,7 +69,8 @@ alias g.='gc -- .'
 alias gd='g diff --color-words'
 alias gdc='gd --cached'
 alias gs='g status'
-alias gl="g log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gl="g lg -n 10"
+alias gll="g lg"
 alias gp="g push"
 alias gg="g merge --no-ff"
 function peco-history-selection() {
