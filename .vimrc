@@ -91,7 +91,6 @@ nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
 nnoremap q <Nop>
-nnoremap dw daw
 noremap ; :
 noremap : ;
 
