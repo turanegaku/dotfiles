@@ -17,5 +17,5 @@ inoremap <C-k> <Esc><Right>:DeleteLineToEnd<CR>i
 
 " tab
 nnoremap gr gT"
-noremap <C-n> gt
-noremap <C-p> gT
+noremap <C-j>h gT
+noremap <C-j>l gt
