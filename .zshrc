@@ -1,8 +1,13 @@
 export PATH=/usr/local/bin:$PATH
 
-if [ -e /usr/local/share/zsh-completions ]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
-fi
+source ~/.zplug/zplug
+
+zplug "b4b4r07/enhancd", use:init.sh
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+
+zplug load
+
 autoload -U compinit
 compinit -u
 autoload -Uz colors ; colors
