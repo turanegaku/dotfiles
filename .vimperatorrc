@@ -26,6 +26,9 @@ noremap : ;
 " 要らないやつ
 noremap <C-b> <Nop>
 noremap a <Nop>
+" コマンド補完
+cnoremap <C-n> <DOWN>
+cnoremap <C-p> <UP>
 " ignore key on tweetdeck
 ignorekeys add https://tweetdeck.twitter.com
 
