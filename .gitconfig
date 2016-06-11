@@ -23,6 +23,7 @@
 [core]
 	editor = vim -c \"set fenc=utf-8\"
 	excludesfile = ~/dotfiles/.gitignore
+	quotepath = false
 [push]
 	default = simple
 [pull]
