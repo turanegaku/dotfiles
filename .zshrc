@@ -6,6 +6,7 @@ bindkey -d
 
 export PATH=/usr/local/bin:$PATH
 
+# zplug
 if [[ -f ~/.zplug/init.zsh ]]; then
   source ~/.zplug/init.zsh
   export ZPLUG_LOADFILE="${HOME}/.zsh/zplug.zsh"
@@ -65,17 +66,6 @@ zstyle ':completion:*:warnings' format 'No matches for: %d'
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'
 zstyle ':completion::*:(-command-|export):*' fake-parameters ${${${_comps[(I)-value-*]#*,}%%,*}:#-*-}
 zstyle ':completion:::::' completer _complete _approximate
-
-# Aliases
-#
-function peco-history-selection() {
-  BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
-  CURSOR=$#BUFFER zle reset-prompt 
-}
-zle -N peco-history-selection 
-bindkey '^R' peco-history-selection
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
 
 # Configuration
 #
