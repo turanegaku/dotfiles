@@ -1,12 +1,26 @@
+# First file permission
+umask 022
+# delete all key bind
+bindkey -d
+
+
 export PATH=/usr/local/bin:$PATH
 
-source ~/.zplug/zplug
+if [[ -f ~/.zplug/init.zsh ]]; then
+  source ~/.zplug/init.zsh
+  export ZPLUG_LOADFILE="${HOME}/.zsh/zplug.zsh"
 
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
-zplug load
+  if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    else
+      echo
+    fi
+  fi
+  zplug load --verbose
+fi
 
 autoload -U compinit
 compinit -u
