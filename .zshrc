@@ -15,9 +15,14 @@ autoload -Uz history-search-end
 
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-HISTFILE=${HOME}/.zsh-history
-HISTSIZE=10000000
-SAVEHIST=100000
+
+# History
+# History file
+HISTFILE=${HOME}/.zsh_history
+# History size of memory
+HISTSIZE=10000
+# History size of file
+SAVEHIST=1000000
 
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' accept-exact '*(N)'
