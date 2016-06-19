@@ -82,6 +82,7 @@ alias gl="g lg -n 10"
 alias gll="g lg"
 alias gp="g push"
 alias gg="g merge --no-ff"
+alias rm='gomi'
 function peco-history-selection() {
   BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
   CURSOR=$#BUFFER zle reset-prompt 
