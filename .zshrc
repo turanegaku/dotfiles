@@ -68,40 +68,6 @@ zstyle ':completion:::::' completer _complete _approximate
 
 # Aliases
 #
-alias -g L='| less'
-alias -g G='| grep'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
-alias l='ls -lah'
-alias la='ls -lAh'
-alias ll='ls -lh'
-alias ls='ls -G'
-alias grep='grep --color'
-alias t=tmux
-alias ta='t a -t'
-alias v=vi
-alias ti=tig
-alias g++11='g++ -std=c++11'
-alias g=git
-alias ga='g add'
-alias gn='g branch'
-alias gm='g commit'
-alias gmm='gm -m'
-alias gme='gmm "" --allow-empty-message'
-alias gma='gm --amend'
-alias gc='g checkout'
-alias gb='gc -b'
-alias gcm='gc master'
-alias g.='gc -- .'
-alias gd='g diff --color-words'
-alias gdc='gd --cached'
-alias gs='g status'
-alias gl="g lg -n 10"
-alias gll="g lg"
-alias gp="g push"
-alias gg="g merge --no-ff"
-alias rm='gomi'
 function peco-history-selection() {
   BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
   CURSOR=$#BUFFER zle reset-prompt 

@@ -6,17 +6,13 @@ alias ll='ls -lh'
 alias ls='ls -G'
 
 alias g++11='g++ -std=c++11'
-if has 'tmux'; then
-  alias t=tmux
-fi
+has 'tmux' && alias t=tmux
 alias ta='t a -t'
 alias ti=tig
 alias v=vi
 
 alias grep='grep --color'
-if has 'gomi'; then
-  alias rm='gomi'
-fi
+has 'gomi' && alias rm='gomi'
 
 # Git
 if has 'git'; then
