@@ -9,7 +9,7 @@ export PATH=/usr/local/bin:$PATH
 # zplug
 if [[ -f ~/.zplug/init.zsh ]]; then
   source ~/.zplug/init.zsh
-  export ZPLUG_LOADFILE="${HOME}/.zsh/zplug.zsh"
+  export ZPLUG_LOADFILE=${HOME}/.zsh/zplug.zsh
 
 
   if ! zplug check --verbose; then
@@ -70,74 +70,4 @@ zstyle ':completion:::::' completer _complete _approximate
 # Configuration
 #
 limit coredumpsize 102400
-setopt prompt_subst
-setopt nobeep
-setopt long_list_jobs
-setopt list_types
-setopt auto_resume
-setopt auto_list
-setopt hist_ignore_dups
-setopt autopushd
-setopt pushd_ignore_dups
-setopt extended_glob
-setopt auto_menu
-setopt extended_history
-setopt equals
-setopt magic_equal_subst
-setopt hist_verify
-setopt numeric_glob_sort
-setopt print_eight_bit
-setopt share_history
-setopt auto_cd
-setopt auto_param_keys
-setopt auto_param_slash
-setopt correct
-setopt noautoremoveslash
-setopt complete_aliases
-setopt glob_complete
-setopt no_complete_aliases
 
-# Prompt
-#
-__git_files() { _files }
-autoload -Uz add-zsh-hook
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn hg bzr
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-zstyle ':vcs_info:(svn|bzr):*' branchformat '%b:r%r'
-zstyle ':vcs_info:bzr:*' use-simple true
-autoload -Uz is-at-least
-if is-at-least 4.3.10; then
-  zstyle ':vcs_info:git:*' check-for-changes true
-  zstyle ':vcs_info:git:*' stagedstr "^"
-  zstyle ':vcs_info:git:*' unstagedstr "*"
-  zstyle ':vcs_info:git:*' formats 'on %s:%b %c%u '
-  zstyle ':vcs_info:git:*' actionformats '%s:%b|%a %c%u'
-fi
-function _update_vcs_info_msg() {
-  psvar=()
-  LANG=en_US.UTF-8 vcs_info
-  [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-add-zsh-hook precmd _update_vcs_info_msg
-PROMPT="
-%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
-%{$terminfo[bold]$fg[yellow]%}%~ \
-%{$fg[cyan]%}%n \
-%{$fg[white]%}at \
-%{$fg[green]%}%m \
-%{$fg[white]%}%1(v|%1v%f|)%{$reset_color%}\
-%{$fg[white]%}[%*]
-%{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
-
-# Paths
-#
-if [ -x "`which go`" ]; then
-  export GOPATH="$HOME/go"
-  export PATH=$PATH:$GOPATH/bin
-  source ~/dotfiles/golang.plugin.zsh
-fi
-
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
