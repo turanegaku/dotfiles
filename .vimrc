@@ -77,6 +77,7 @@ autocmd ColorScheme * hi LineNr ctermfg=245
 set background=dark
 colorscheme hybrid
 syntax on
+nnoremap t :<C-u>if &bg=='dark' \| set bg=light \| else \| set bg=dark \| endif<CR>
 
 noremap <Space>h ^
 noremap <Space>l $
