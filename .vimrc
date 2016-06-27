@@ -50,7 +50,7 @@ filetype plugin indent on
 set number
 set ruler
 set list
-set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<,eol:<
+set listchars=tab:>-,trail:-,nbsp:%,extends:>,precedes:<
 set incsearch
 set hlsearch
 set nowrap
