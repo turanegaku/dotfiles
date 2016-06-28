@@ -1,0 +1,10 @@
+#compdef rpp
+
+_rpp() {
+    _arguments \
+        -h'[show help]' \
+        -b'[build only]' \
+        -f'[build force]' \
+        -g'[build for gdb]'
+
+}

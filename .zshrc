@@ -67,3 +67,4 @@ zstyle ':completion:::::' completer _complete _approximate
 #
 limit coredumpsize 102400
 
+fpath=(~/.zsh/Completion $fpath)
