@@ -10,6 +10,8 @@ has 'tmux' && alias t=tmux
 alias ta='t a -t'
 alias ti=tig
 alias v=vi
+alias py=python
+alias ip=ipython
 
 alias grep='grep --color'
 has 'gomi' && alias rm='gomi'
@@ -43,6 +45,6 @@ alias -g G='| grep'
 alias -g H='| head'
 alias -g T='| tail'
 alias -g S='| sort'
-alias -g N' >dev/null 2>&1'
-alias -g N1' >dev/null'
-alias -g N2' 2>dev/null'
+alias -g N=' >/dev/null 2>&1'
+alias -g N1=' >/dev/null'
+alias -g N2=' 2>/dev/null'

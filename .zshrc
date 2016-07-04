@@ -29,11 +29,11 @@ autoload -Uz colors ; colors
 
 # History
 # History file
-HISTFILE=${HOME}/.zsh_history
+export HISTFILE=${HOME}/.zsh_history
 # History size of memory
-HISTSIZE=10000
+export HISTSIZE=10000
 # History size of file
-SAVEHIST=1000000
+export SAVEHIST=1000000
 
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' accept-exact '*(N)'
