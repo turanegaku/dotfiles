@@ -1,48 +1,48 @@
 set nocompatible
 filetype off
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+if &compatible
+  set nocompatible
 endif
-call neobundle#begin(expand('~/.vim/bundle'))
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin'  : 'make -f make_cygwin.mak',
-      \     'mac'     : 'make',
-      \     'linux'   : 'make',
-      \     'unix'    : 'gmake',
-      \    },
-      \ }
-if has('lua')
-  NeoBundleLazy 'Shougo/neocomplete.vim', {
-        \ 'depends' : 'Shougo/vimproc',
-        \ 'autoload' : { 'insert' : 1,}
-        \ }
-endif
+call dein#begin(expand('~/.vim/dein'))
 
-" neocomplete {{{
-let g:neocomplete#enable_at_startup               = 1
-let g:neocomplete#auto_completion_start_length    = 3
-let g:neocomplete#enable_ignore_case              = 1
-let g:neocomplete#enable_smart_case               = 1
-let g:neocomplete#enable_camel_case               = 1
-let g:neocomplete#use_vimproc                     = 1
-let g:neocomplete#sources#buffer#cache_limit_size = 1000000
-let g:neocomplete#sources#tags#cache_limit_size   = 30000000
-let g:neocomplete#enable_fuzzy_completion         = 1
-let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
-" " }}}
-" NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'itchyny/lightline.vim'
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim')
+call dein#add('itchyny/lightline.vim')
+call dein#add('tyru/caw.vim.git')
+call dein#end()
+
 let g:lightline = {
       \ 'colorscheme': 'solarized'
       \ }
-NeoBundle 'tyru/caw.vim.git'
-map <C-k> <Plug>(caw:i:toggle)
-call neobundle#end()
+map <C-k> <Plug>(caw:hatpos:toggle)
+
+" if has('lua')
+"   NeoBundleLazy 'Shougo/neocomplete.vim', {
+"         \ 'depends' : 'Shougo/vimproc',
+"         \ 'autoload' : { 'insert' : 1,}
+"         \ }
+" endif
+"
+" " neocomplete {{{
+" let g:neocomplete#enable_at_startup               = 1
+" let g:neocomplete#auto_completion_start_length    = 3
+" let g:neocomplete#enable_ignore_case              = 1
+" let g:neocomplete#enable_smart_case               = 1
+" let g:neocomplete#enable_camel_case               = 1
+" let g:neocomplete#use_vimproc                     = 1
+" let g:neocomplete#sources#buffer#cache_limit_size = 1000000
+" let g:neocomplete#sources#tags#cache_limit_size   = 30000000
+" let g:neocomplete#enable_fuzzy_completion         = 1
+" let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
+" " " }}}
+" " NeoBundle 'Townk/vim-autoclose'
+" NeoBundle 'itchyny/lightline.vim'
+" NeoBundle 'tyru/caw.vim.git'
+" map <C-k> <Plug>(caw:i:toggle)
+" call neobundle#end()
 
 
 filetype plugin indent on

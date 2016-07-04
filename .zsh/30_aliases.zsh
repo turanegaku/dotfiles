@@ -9,7 +9,8 @@ alias g++11='g++ -std=c++11'
 has 'tmux' && alias t=tmux
 alias ta='t a -t'
 alias ti=tig
-alias v=vi
+alias vi=vim
+alias v=vim
 alias py=python
 alias ip=ipython
 
