@@ -31,6 +31,8 @@ PROMPT+="%{$fg[blue]%}# "
 PROMPT+="%{$fg[yellow]%}%~ "
 # user name
 PROMPT+="%{$fg[cyan]%}%n "
+# host name
+PROMPT+="%{$fg[green]%}%m "
 # git status
 PROMPT+="%{$fg[white]%}%1(v|%1v%f|)"
 # time
