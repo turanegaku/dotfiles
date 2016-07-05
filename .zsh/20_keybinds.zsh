@@ -7,7 +7,7 @@ bindkey '^N' history-beginning-search-forward
 
 # Ctrl-R
 function peco-history-selection() {
-  BUFFER=`history -n 1 | tail -r | awk '!a[$0]++' | peco`
+  BUFFER=`history 1 | sort -nr | perl -nle 's/^\s*\d+.?\s+//; print' | awk '!x[$0]++' | fzf --reverse +s`
   CURSOR=$#BUFFER zle reset-prompt
 }
 zle -N peco-history-selection
