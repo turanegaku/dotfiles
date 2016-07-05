@@ -69,9 +69,10 @@ set helplang=en
 set laststatus=2
 set t_Co=256
 set cursorline
+set clipboard+=autoselect
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,utf-8,sjis
-" autocmd ColorScheme * hi CursorLine ctermbg=235 cterm=NONE
+autocmd ColorScheme * hi CursorLine ctermbg=236
 autocmd ColorScheme * hi LineNr ctermfg=245
 
 set background=dark
