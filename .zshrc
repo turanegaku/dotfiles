@@ -23,6 +23,12 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   zplug load --verbose
 fi
 
+# anyenv
+if [[ -f ~/.anyenv/bin/anyenv ]]; then
+  export PATH=$PATH:$HOME/.anyenv/bin
+  eval "$(anyenv init -)"
+fi
+
 autoload -U compinit
 compinit -u
 autoload -Uz colors ; colors
