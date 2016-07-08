@@ -88,7 +88,6 @@ noremap <Space>h ^
 noremap <Space>l $
 
 nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
-
 nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
 nnoremap <Esc><Esc> :nohlsearch<CR>
@@ -111,8 +110,8 @@ vnoremap s !sort<CR>
 "----------------------------------------
 " see http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
 
-" 例: Shift-Fでコードのフォーマットを行う．
-nnoremap <S-f> :call UncrustifyAuto()<CR>
+" 例: Sift-Eでコードのフォーマットを行う．
+nnoremap <S-e> :call UncrustifyAuto()<CR>
 
 " 例: 保存時に自動フォーマット
 autocmd BufWritePre <buffer> :call UncrustifyAuto()
