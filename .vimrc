@@ -9,9 +9,16 @@ set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 call dein#begin(expand('~/.vim/dein'))
 
 call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim')
+call dein#add('Shougo/vimproc', {
+      \ 'build': {
+      \     'windows': 'tools\\update-dll-mingw',
+      \     'cygwin': 'make -f make_cygwin.mak',
+      \     'mac': 'make -f make_mac.mak',
+      \     'linux': 'make',
+      \     'unix': 'gmake'}})
 call dein#add('itchyny/lightline.vim')
 call dein#add('tyru/caw.vim.git')
+call dein#add('w0ng/vim-hybrid')
 call dein#end()
 
 let g:lightline = {
@@ -39,9 +46,6 @@ map <C-k> <Plug>(caw:hatpos:toggle)
 " let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 " " " }}}
 " " NeoBundle 'Townk/vim-autoclose'
-" NeoBundle 'itchyny/lightline.vim'
-" NeoBundle 'tyru/caw.vim.git'
-" map <C-k> <Plug>(caw:i:toggle)
 " call neobundle#end()
 
 
