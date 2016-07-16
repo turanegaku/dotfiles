@@ -1,8 +1,16 @@
-set refresh-mode = auto
+# viewの左端にコミットIDを表示する
+set main-view = id author commit-title:graph=yes,refs=yes
+# 垂直分割時の比率
+set split-view-width = 75%
 
+
+bind generic <Ctrl-b> scroll-page-up
+bind generic <Ctrl-f> scroll-page-down
+bind generic G move-last-line
 bind generic G none
 bind generic g move-first-line
-bind generic G move-last-line
+
+bind main    R !git rebase -i %(commit)
 
 
 ########
