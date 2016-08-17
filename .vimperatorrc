@@ -24,7 +24,6 @@ nnoremap l <C-n>
 noremap ; :
 noremap : ;
 " 要らないやつ
-noremap <C-b> <Nop>
 noremap a <Nop>
 " コマンド補完
 cnoremap <C-n> <DOWN>

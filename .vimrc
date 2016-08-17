@@ -84,6 +84,16 @@ noremap <Space>l $
 nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
+noremap gc :tabnew<Space>
+noremap gn gt
+noremap gp gT
+noremap g\| :vsp<Space>
+noremap g- :sp<Space>
+noremap gh <C-w>h
+noremap gj <C-w>j
+noremap gk <C-w>k
+noremap gl <C-w>l
+
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
 nnoremap ZZ <Nop>
@@ -98,3 +108,10 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 
 vnoremap s !sort<CR>
+
+cnoremap <C-r> <C-f>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-d> <Del>
