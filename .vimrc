@@ -1,24 +1,39 @@
-set nocompatible
 filetype off
 
 if &compatible
   set nocompatible
 endif
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-call dein#begin(expand('~/.vim/dein'))
+"" dein
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
-call dein#add('itchyny/lightline.vim')
-call dein#add('tyru/caw.vim')
-call dein#add('w0ng/vim-hybrid')
-call dein#end()
+" auto install
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
 
-let g:lightline = {
-      \ 'colorscheme': 'solarized'
-      \ }
-map <C-k> <Plug>(caw:hatpos:toggle)
+" load plugin
+if dein#load_state(s:dein_dir)
+  call dein#begin(expand(s:dein_dir))
+
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/deinlazy.toml'
+
+  call dein#load_toml(s:toml,       {'lazy': 0})
+  call dein#load_toml(s:lazy_toml,  {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
 
 " if has('lua')
 "   NeoBundleLazy 'Shougo/neocomplete.vim', {
@@ -45,6 +60,7 @@ map <C-k> <Plug>(caw:hatpos:toggle)
 
 filetype plugin indent on
 
+" config
 set number
 set ruler
 set list
@@ -70,14 +86,10 @@ set cursorline
 set clipboard+=autoselect
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,utf-8,sjis
-autocmd ColorScheme * hi CursorLine ctermbg=236
-autocmd ColorScheme * hi LineNr ctermfg=245
 
-set background=dark
-colorscheme hybrid
 syntax on
-nnoremap t :<C-u>if &bg=='dark' \| set bg=light \| else \| set bg=dark \| endif<CR>
 
+" alias
 noremap <Space>h ^
 noremap <Space>l $
 

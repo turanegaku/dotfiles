@@ -1,0 +1,50 @@
+[[plugins]]
+repo      = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+
+[[plugins]]
+repo      = 'tyru/caw.vim'
+hook_add  = 'map <C-k> <Plug>(caw:hatpos:toggle)'
+
+[[plugins]]
+repo      = 'itchyny/lightline.vim'
+hook_add  = '''
+  let g:lightline = {
+  \     'colorscheme': 'solarized'
+  \ }
+'''
+
+[[plugins]]
+repo      = 'w0ng/vim-hybrid'
+hook_add  = '''
+  set background=dark
+  colorscheme hybrid
+  autocmd ColorScheme * hi CursorLine ctermbg=236
+  autocmd ColorScheme * hi LineNr ctermfg=245
+'''
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'keith/tmux.vim'
+on_ft = 'tmux'
+
+[[plugins]]
+repo = 'isRuslan/vim-es6'
+on_ft = 'javascript'
