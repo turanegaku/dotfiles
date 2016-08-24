@@ -1,7 +1,73 @@
 [[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'vimproc.vim'
+on_cmd = 'Unite'
+on_event = 'InsertEnter'
+hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
+hook_add = '''
+  noremap <silent> g\| :Unite file -default-action=right<CR>
+  noremap <silent> g- :Unite file -default-action=below<CR>
+  noremap <silent> gc :Unite file -default-action=tabopen<CR>
+'''
+
+# [[plugins]]
+# repo = 'Shougo/neocomplete.vim'
+# depends = 'vimproc.vim'
+# if = "has('lua')"
+# hook_source = '''
+#   let g:neocomplete#enable_at_startup               = 1
+#   let g:neocomplete#auto_completion_start_length    = 3
+#   let g:neocomplete#enable_ignore_case              = 1
+#   let g:neocomplete#enable_smart_case               = 1
+#   let g:neocomplete#enable_camel_case               = 1
+#   let g:neocomplete#use_vimproc                     = 1
+#   let g:neocomplete#sources#buffer#cache_limit_size = 1000000
+#   let g:neocomplete#sources#tags#cache_limit_size   = 30000000
+#   let g:neocomplete#enable_fuzzy_completion         = 1
+#   let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
+# '''
+
+# [[plugins]]
+# repo = 'justmao945/vim-clang.git'
+# hook_source = '''
+#   " disable auto completion for vim-clanG
+#   let g:clang_auto = 0
+#   let g:clang_complete_auto = 0
+#   let g:clang_auto_select = 0
+#   let g:clang_use_library = 1
+#
+#   " default 'longest' can not work with neocomplete
+#   let g:clang_c_completeopt   = 'menuone'
+#   let g:clang_cpp_completeopt = 'menuone'
+#
+#   if executable('clang-3.6')
+#   let g:clang_exec = 'clang-3.6'
+#   elseif executable('clang-3.5')
+#   let g:clang_exec = 'clang-3.5'
+#   elseif executable('clang-3.4')
+#   let g:clang_exec = 'clang-3.4'
+#   else
+#   let g:clang_exec = 'clang'
+#   endif
+#
+#   if executable('clang-format-3.6')
+#   let g:clang_format_exec = 'clang-format-3.6'
+#   elseif executable('clang-format-3.5')
+#   let g:clang_format_exec = 'clang-format-3.5'
+#   elseif executable('clang-format-3.4')
+#   let g:clang_format_exec = 'clang-format-3.4'
+#   else
+#   let g:clang_exec = 'clang-format'
+#   endif
+#
+#   let g:clang_c_options = '-std=c11'
+#   let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+# '''
+
+[[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
-hook_add = '''
+hook_source = '''
   let g:jedi#use_tabs_not_buffers = 1
   let g:jedi#popup_select_first = 0
   let g:jedi#popup_on_dot = 0
@@ -11,5 +77,6 @@ hook_add = '''
   let g:jedi#documentation_command = "K"
   let g:jedi#usages_command = "<leader>n"
   let g:jedi#rename_command = "<leader>R"
-  autocmd FileType python setlocal completeopt-=preview
 '''
+hook_add = 'autocmd FileType python setlocal completeopt-=preview'
+

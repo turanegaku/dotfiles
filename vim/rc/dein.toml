@@ -1,5 +1,8 @@
 [[plugins]]
 repo      = 'Shougo/dein.vim'
+hook_add  = '''
+  noremap ,r :echo dein#clear_state()<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -15,6 +18,7 @@ hook_post_update = '''
   endif
   let g:dein#plugin.build = cmd
 '''
+
 
 [[plugins]]
 repo      = 'tyru/caw.vim'
