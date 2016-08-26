@@ -100,6 +100,8 @@ set laststatus=2
 set t_Co=256
 set cursorline
 set clipboard+=autoselect
+set wildmenu
+set wildmode=longest:full,full
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,utf-8,sjis
 
@@ -109,8 +111,8 @@ syntax on
 noremap <Space>h ^
 noremap <Space>l $
 
-nnoremap <Space>o  :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
-nnoremap <Space>O  :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+nnoremap <silent><Space>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <silent><Space>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
 " noremap gc :tabnew<Space>
 noremap gn gt
@@ -123,7 +125,7 @@ noremap gk <C-w>k
 noremap gl <C-w>l
 noremap gx <C-w>x
 
-nnoremap <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent><Esc><Esc> :nohlsearch<CR>
 
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
