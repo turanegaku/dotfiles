@@ -1,0 +1,16 @@
+! remove mod1 = Alt_L
+remove mod1 = Alt_R
+remove mod4 = Super_L
+! remove lock = Caps_Lock
+
+! keycode 133 = Alt_L
+! keycode 66 = Control_L
+! keycode 64 = Hankaku
+! keycode 108 = Zenkaku
+
+keycode 133 = Hankaku
+keycode 134 = Zenkaku
+
+! add control = Control_L
+! add mod1 = Alt_L
+! add mod1 = Alt_R
