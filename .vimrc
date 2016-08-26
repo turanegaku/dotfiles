@@ -4,6 +4,22 @@ if &compatible
   set nocompatible
 endif
 
+"" version
+function! s:get_executable(prefix, suffix_array)
+  for a:suffix in a:suffix_array
+    let a:command = a:prefix . a:suffix
+    if executable(a:command)
+      return a:command
+    endif
+  endfor
+  throw 'unexecutable'
+endfunction
+let s:clang_suffix_array = ['', '-3.8', '-3.4']
+let g:clang_exec         = s:get_executable('clang', s:clang_suffix_array)
+let g:clang_plus_exec    = s:get_executable('clang++', s:clang_suffix_array)
+let g:clang_format_exec  = s:get_executable('clang-format', s:clang_suffix_array)
+
+
 "" dein
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -119,6 +135,7 @@ noremap : ;
 inoremap jk <Esc>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+inoremap <Nul> <C-x><C-o>
 
 vnoremap s !sort<CR>
 

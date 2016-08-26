@@ -21,8 +21,6 @@ hook_post_update = '''
 
 
 [[plugins]]
-repo      = 'tyru/caw.vim'
-hook_add  = 'map <C-k> <Plug>(caw:hatpos:toggle)'
 
 [[plugins]]
 repo      = 'itchyny/lightline.vim'

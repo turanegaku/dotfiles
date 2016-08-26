@@ -2,7 +2,6 @@
 repo = 'Shougo/unite.vim'
 depends = 'vimproc.vim'
 on_cmd = 'Unite'
-on_event = 'InsertEnter'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 hook_add = '''
   noremap <silent> g\| :Unite file -default-action=right<CR>
@@ -10,59 +9,112 @@ hook_add = '''
   noremap <silent> gc :Unite file -default-action=tabopen<CR>
 '''
 
-# [[plugins]]
-# repo = 'Shougo/neocomplete.vim'
-# depends = 'vimproc.vim'
-# if = "has('lua')"
-# hook_source = '''
-#   let g:neocomplete#enable_at_startup               = 1
-#   let g:neocomplete#auto_completion_start_length    = 3
-#   let g:neocomplete#enable_ignore_case              = 1
-#   let g:neocomplete#enable_smart_case               = 1
-#   let g:neocomplete#enable_camel_case               = 1
-#   let g:neocomplete#use_vimproc                     = 1
-#   let g:neocomplete#sources#buffer#cache_limit_size = 1000000
-#   let g:neocomplete#sources#tags#cache_limit_size   = 30000000
-#   let g:neocomplete#enable_fuzzy_completion         = 1
-#   let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
-# '''
+[[plugins]]
+repo      = 'tyru/caw.vim'
+on_map   = '<Plug>(caw:hatpos:toggle)'
+hook_add  = 'map <C-k> <Plug>(caw:hatpos:toggle)'
+
+
+# lint
 
 # [[plugins]]
-# repo = 'justmao945/vim-clang.git'
+# repo = 'scrooloose/syntastic'
+# on_ft = ['c', 'cpp', 'javascript']
 # hook_source = '''
-#   " disable auto completion for vim-clanG
-#   let g:clang_auto = 0
-#   let g:clang_complete_auto = 0
-#   let g:clang_auto_select = 0
-#   let g:clang_use_library = 1
+#   let g:syntastic_c_compiler = g:clang_exec
+#   let g:syntastic_cpp_compiler = g:clang_plug_exec
 #
-#   " default 'longest' can not work with neocomplete
-#   let g:clang_c_completeopt   = 'menuone'
-#   let g:clang_cpp_completeopt = 'menuone'
+#   let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
 #
-#   if executable('clang-3.6')
-#   let g:clang_exec = 'clang-3.6'
-#   elseif executable('clang-3.5')
-#   let g:clang_exec = 'clang-3.5'
-#   elseif executable('clang-3.4')
-#   let g:clang_exec = 'clang-3.4'
-#   else
-#   let g:clang_exec = 'clang'
-#   endif
+#   let g:syntastic_always_populate_loc_list = 0
+#   let g:syntastic_auto_loc_list = 1
 #
-#   if executable('clang-format-3.6')
-#   let g:clang_format_exec = 'clang-format-3.6'
-#   elseif executable('clang-format-3.5')
-#   let g:clang_format_exec = 'clang-format-3.5'
-#   elseif executable('clang-format-3.4')
-#   let g:clang_format_exec = 'clang-format-3.4'
-#   else
-#   let g:clang_exec = 'clang-format'
-#   endif
-#
-#   let g:clang_c_options = '-std=c11'
-#   let g:clang_cpp_options = '-std=c++11 -stdlib=libc++'
+#   let g:syntastic_check_on_open = 0
+#   let g:syntastic_check_on_wq = 0
+#   let g:syntastic_c_check_header = 1
+#   let g:syntastic_cpp_check_header = 1
 # '''
+
+[[plugins]]
+repo    = 'osyo-manga/vim-watchdogs'
+depends = ['vim-quickrun', 'vimproc.vim', 'shabadou.vim', 'vim-hier']
+on_ft = ['c', 'cpp', 'javascript', 'python']
+hook_source = '''
+  noremap <silent>,w :WatchdogsRun<CR>
+
+  let g:watchdogs_check_BufWritePost_enable = 1
+  let g:watchdogs_check_CursorHold_enable = 1
+  let g:watchdogs_check_BufWritePost_enable_on_wq = 0
+
+  let g:quickrun_config = {}
+
+  let g:quickrun_config['watchdogs_checker/_']          = { 'outputter/quickfix/open_cmd': '' }
+  let g:quickrun_config['watchdogs_checker/clang']      = { 'command': g:clang_exec }
+  let g:quickrun_config['watchdogs_checker/clang++']    = { 'command': g:clang_plus_exec, 'cmdopt': '-std=gnu++0x -Wall' }
+  let g:quickrun_config['c/watchdogs_checker']          = { 'type': 'watchdogs_checker/clang' }
+  let g:quickrun_config['cpp/watchdogs_checker']        = { 'type': 'watchdogs_checker/clang++' }
+  let g:quickrun_config['javascript/watchdogs_checker'] = { 'type': 'eslint' }
+
+  call watchdogs#setup(g:quickrun_config)
+'''
+hook_post_source = '''
+  " not called auto start watchdogs
+  call watchdogs#setup(g:quickrun_config)
+  :WatchdogsRun
+'''
+
+[[plugins]]
+repo      = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo      = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo      = 'jceb/vim-hier'
+
+# cpp
+
+## format
+[[plugins]]
+repo = 'rhysd/vim-clang-format'
+on_ft = ['c', 'cpp']
+hook_source = '''
+  let g:clang_format#command = g:clang_format_exec
+  noremap ,f :ClangFormat<CR>
+'''
+
+## completion
+[[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c', 'cpp']
+hook_source = '''
+  let g:clang_auto = 1
+  let g:clang_c_completeopt = 'menuone'
+  let g:clang_cpp_completeopt = 'longest,menuone'
+  let g:clang_c_options = '-w'
+  let g:clang_enable_format_command = 0
+'''
+
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_event = 'InsertEnter'
+depends = 'vimproc.vim'
+if = "has('lua')"
+hook_add = '''
+  let g:neocomplete#enable_at_startup               = 1
+'''
+hook_source = '''
+  let g:neocomplete#auto_completion_start_length    = 3
+  let g:neocomplete#enable_ignore_case              = 1
+  let g:neocomplete#enable_smart_case               = 1
+  let g:neocomplete#use_vimproc                     = 1
+  let g:neocomplete#sources#buffer#cache_limit_size = 1000000
+  let g:neocomplete#sources#tags#cache_limit_size   = 30000000
+  let g:neocomplete#enable_fuzzy_completion         = 1
+  let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
+'''
+
 
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
@@ -79,4 +131,3 @@ hook_source = '''
   let g:jedi#rename_command = "<leader>R"
 '''
 hook_add = 'autocmd FileType python setlocal completeopt-=preview'
-
