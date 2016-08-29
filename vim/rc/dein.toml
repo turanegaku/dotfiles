@@ -20,7 +20,14 @@ hook_post_update = '''
 '''
 
 
+# Appearence
+
 [[plugins]]
+repo      = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo      = 'bronson/vim-trailing-whitespace'
+hook_add  = 'let g:extra_whitespace_ignored_filetypes = ["unite"]'
 
 [[plugins]]
 repo      = 'itchyny/lightline.vim'
