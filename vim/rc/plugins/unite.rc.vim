@@ -98,9 +98,9 @@
 "
 " let g:unite_ignore_source_files = []
 "
-" call unite#custom#profile('action', 'context', {
-"       \ 'start_insert' : 1
-"       \ })
+call unite#custom#profile('default', 'context', {
+      \ 'start_insert' : 1
+      \ })
 "
 " " migemo.
 " call unite#custom#source('line_migemo', 'matchers', 'matcher_migemo')

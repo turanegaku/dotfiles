@@ -33,7 +33,7 @@ hook_add  = 'let g:extra_whitespace_ignored_filetypes = ["unite"]'
 repo      = 'itchyny/lightline.vim'
 hook_add  = '''
   let g:lightline = {
-  \     'colorscheme': 'solarized'
+  \     'colorscheme': 'Tomorrow_Night'
   \ }
 '''
 
@@ -46,9 +46,13 @@ hook_add  = '''
   autocmd ColorScheme * hi LineNr ctermfg=245
 '''
 
+
+# Language
+
 [[plugins]] # toml syntax
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+hook_add = 'autocmd BufWritePost * call dein#clear_state()'
 
 [[plugins]]
 repo = 'keith/tmux.vim'
