@@ -15,9 +15,9 @@ alias py=python
 alias ip=ipython
 
 alias grep='grep --color'
-if [[ -f /bin/zsh ]]; then
-  has 'gomi' && alias rm='gomi'
-fi
+# if [[ -f /bin/zsh ]]; then
+#   has 'gomi' && alias rm='gomi'
+# fi
 
 # Git
 if has 'git'; then
