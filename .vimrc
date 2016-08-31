@@ -51,27 +51,6 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
-" if has('lua')
-"   NeoBundleLazy 'Shougo/neocomplete.vim', {
-"         \ 'depends' : 'Shougo/vimproc',
-"         \ 'autoload' : { 'insert' : 1,}
-"         \ }
-" endif
-"
-" " neocomplete {{{
-" let g:neocomplete#enable_at_startup               = 1
-" let g:neocomplete#auto_completion_start_length    = 3
-" let g:neocomplete#enable_ignore_case              = 1
-" let g:neocomplete#enable_smart_case               = 1
-" let g:neocomplete#enable_camel_case               = 1
-" let g:neocomplete#use_vimproc                     = 1
-" let g:neocomplete#sources#buffer#cache_limit_size = 1000000
-" let g:neocomplete#sources#tags#cache_limit_size   = 30000000
-" let g:neocomplete#enable_fuzzy_completion         = 1
-" let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
-" " " }}}
-" " NeoBundle 'Townk/vim-autoclose'
-" call neobundle#end()
 
 
 filetype plugin indent on
@@ -125,11 +104,8 @@ noremap <Space>l $
 nnoremap <silent><Space>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
 nnoremap <silent><Space>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
 
-" noremap gc :tabnew<Space>
 noremap gn gt
 noremap gp gT
-" noremap g\| :vsp<Space>
-" noremap g- :sp<Space>
 noremap gh <C-w>h
 noremap gj <C-w>j
 noremap gk <C-w>k
