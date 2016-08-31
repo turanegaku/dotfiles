@@ -1,1 +1,4 @@
 BasedOnStyle: Google
+
+AlignConsecutiveAssignments: true
+ForEachMacros: ['foreach', 'Q_FOREACH', 'BOOST_FOREACH', 'REP', 'RREP', 'FOR', 'RFOR']
