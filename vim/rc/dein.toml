@@ -27,7 +27,7 @@ repo      = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
 repo      = 'bronson/vim-trailing-whitespace'
-hook_add  = 'let g:extra_whitespace_ignored_filetypes = ["unite"]'
+hook_add  = 'let g:extra_whitespace_ignored_filetypes = ["unite", "help"]'
 
 [[plugins]]
 repo      = 'itchyny/lightline.vim'
@@ -48,19 +48,3 @@ hook_add  = '''
     autocmd ColorScheme hybrid hi LineNr ctermfg=245
   augroup END
 '''
-
-
-# Language
-
-[[plugins]] # toml syntax
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-hook_add = 'autocmd BufWritePost * call dein#clear_state()'
-
-[[plugins]]
-repo = 'keith/tmux.vim'
-on_ft = 'tmux'
-
-[[plugins]]
-repo = 'isRuslan/vim-es6'
-on_ft = 'javascript'

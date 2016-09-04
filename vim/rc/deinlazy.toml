@@ -14,6 +14,9 @@ repo      = 'tyru/caw.vim'
 on_map   = '<Plug>(caw:hatpos:toggle)'
 hook_add  = 'map <C-k> <Plug>(caw:hatpos:toggle)'
 
+[[plugins]]
+repo      = 'vim-jp/vimdoc-ja'
+
 
 # lint
 
@@ -43,12 +46,12 @@ hook_source = '''
   noremap <silent>,w :WatchdogsRun<CR>
 
   let g:watchdogs_check_BufWritePost_enable = 1
-  let g:watchdogs_check_CursorHold_enable = 1
   let g:watchdogs_check_BufWritePost_enable_on_wq = 0
+  let g:watchdogs_check_CursorHold_enable = 1
 
   let g:quickrun_config = {}
 
-  let g:quickrun_config['watchdogs_checker/_']          = { 'outputter/quickfix/open_cmd': '' }
+  " let g:quickrun_config['watchdogs_checker/_']          = { 'outputter/quickfix/open_cmd': '' }
   let g:quickrun_config['watchdogs_checker/clang']      = { 'command': g:clang_exec }
   let g:quickrun_config['watchdogs_checker/clang++']    = { 'command': g:clang_plus_exec, 'cmdopt': '-std=gnu++0x -Wall' }
   let g:quickrun_config['c/watchdogs_checker']          = { 'type': 'watchdogs_checker/clang' }
@@ -59,6 +62,7 @@ hook_source = '''
 '''
 hook_post_source = '''
   " not called auto start watchdogs
+  echo 1000
   call watchdogs#setup(g:quickrun_config)
   :WatchdogsRun
 '''
@@ -126,8 +130,24 @@ hook_source = '''
   let g:jedi#goto_command = "<leader>d"
   let g:jedi#goto_assignments_command = "<leader>g"
   let g:jedi#goto_definitions_command = ""
-  let g:jedi#documentation_command = "K"
+  " let g:jedi#documentation_command = "K"
   let g:jedi#usages_command = "<leader>n"
   let g:jedi#rename_command = "<leader>R"
 '''
 hook_add = 'autocmd FileType python setlocal completeopt-=preview'
+
+
+# Language
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+hook_add = 'autocmd BufWritePost * call dein#clear_state()'
+
+[[plugins]]
+repo = 'keith/tmux.vim'
+on_ft = 'tmux'
+
+[[plugins]]
+repo = 'isRuslan/vim-es6'
+on_ft = 'javascript'
