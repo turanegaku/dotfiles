@@ -42,8 +42,11 @@ repo      = 'w0ng/vim-hybrid'
 hook_add  = '''
   set background=dark
   colorscheme hybrid
-  autocmd ColorScheme * hi CursorLine ctermbg=236
-  autocmd ColorScheme * hi LineNr ctermfg=245
+  augroup scheme
+    autocmd!
+    autocmd ColorScheme hybrid hi CursorLine ctermbg=236
+    autocmd ColorScheme hybrid hi LineNr ctermfg=245
+  augroup END
 '''
 
 

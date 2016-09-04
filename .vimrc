@@ -95,6 +95,12 @@ set wildmode=longest:full,full
 set encoding=utf-8
 set fileencodings=iso-2022-jp,euc-jp,utf-8,sjis
 
+augroup vimrc
+  autocmd!
+  autocmd FileType vim set keywordprg=:help
+augroup END
+
+
 syntax on
 
 " alias
