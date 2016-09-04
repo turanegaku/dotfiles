@@ -21,6 +21,7 @@ deploy:
 	@echo 'deploy dotfiles to home directory.'
 	@echo
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+	@ln -sfnv $(abspath 'vim/rc') $(HOME)/.vim/
 
 init:
 	@bash $(DOTPATH)/init.sh
