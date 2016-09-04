@@ -12,7 +12,7 @@ function! s:get_executable(prefix, suffix_array)
       return a:command
     endif
   endfor
-  throw 'unexecutable'
+  echo 'unexecutable:' . a:prefix
 endfunction
 let s:clang_suffix_array = ['', '-3.8', '-3.4']
 let g:clang_exec         = s:get_executable('clang', s:clang_suffix_array)
