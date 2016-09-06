@@ -41,30 +41,29 @@ repo      = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo    = 'osyo-manga/vim-watchdogs'
 depends = ['vim-quickrun', 'vimproc.vim', 'shabadou.vim', 'vim-hier']
-on_ft = ['c', 'cpp', 'javascript', 'python']
+on_ft = ['c', 'cpp', 'javascript', 'python', 'ruby']
 hook_source = '''
-  noremap <silent>,w :WatchdogsRun<CR>
+  noremap <silent>,w :WatchdogsRunSilent<CR>
 
   let g:watchdogs_check_BufWritePost_enable = 1
   let g:watchdogs_check_BufWritePost_enable_on_wq = 0
-  let g:watchdogs_check_CursorHold_enable = 1
+  let g:watchdogs_check_CursorHold_enable = 0
 
-  let g:quickrun_config = {}
+  let g:quickrun_config = get(g:, 'quickrun_config', {})
 
-  " let g:quickrun_config['watchdogs_checker/_']          = { 'outputter/quickfix/open_cmd': '' }
+  let g:quickrun_config['watchdogs_checker/_'] = {
+    \   'runner/vimproc/updatetime': 40,
+    \   'outputter': 'loclist',
+    \   'outputter/loclist/open_cmd': 'lwindow',
+    \ }
+
   let g:quickrun_config['watchdogs_checker/clang']      = { 'command': g:clang_exec }
   let g:quickrun_config['watchdogs_checker/clang++']    = { 'command': g:clang_plus_exec, 'cmdopt': '-std=gnu++0x -Wall' }
   let g:quickrun_config['c/watchdogs_checker']          = { 'type': 'watchdogs_checker/clang' }
   let g:quickrun_config['cpp/watchdogs_checker']        = { 'type': 'watchdogs_checker/clang++' }
-  let g:quickrun_config['javascript/watchdogs_checker'] = { 'type': 'eslint' }
+  let g:quickrun_config['javascript/watchdogs_checker'] = { 'type': 'watchdogs_checker/eslint' }
 
   call watchdogs#setup(g:quickrun_config)
-'''
-hook_post_source = '''
-  " not called auto start watchdogs
-  echo 1000
-  call watchdogs#setup(g:quickrun_config)
-  :WatchdogsRun
 '''
 
 [[plugins]]
