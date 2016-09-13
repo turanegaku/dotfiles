@@ -145,6 +145,10 @@ on_ft = 'toml'
 hook_add = 'autocmd BufWritePost * call dein#clear_state()'
 
 [[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = 'pug'
+
+[[plugins]]
 repo = 'keith/tmux.vim'
 on_ft = 'tmux'
 
