@@ -55,13 +55,16 @@ hook_source = '''
   let g:quickrun_config['watchdogs_checker/_'] = {
     \   'runner/vimproc/updatetime': 40,
     \   'outputter': 'loclist',
-    \   'outputter/loclist/open_cmd': 'lwindow',
+    \   'outputter/loclist/open_cmd': '',
+    " \   'outputter/loclist/open_cmd': 'lwindow',
     \ }
 
   let g:quickrun_config['watchdogs_checker/clang']      = { 'command': g:clang_exec }
   let g:quickrun_config['watchdogs_checker/clang++']    = { 'command': g:clang_plus_exec, 'cmdopt': '-std=gnu++0x -Wall' }
+  let g:quickrun_config['watchdogs_checker/pylint']     = { 'command': 'pylint' }
   let g:quickrun_config['c/watchdogs_checker']          = { 'type': 'watchdogs_checker/clang' }
   let g:quickrun_config['cpp/watchdogs_checker']        = { 'type': 'watchdogs_checker/clang++' }
+  let g:quickrun_config['python/watchdogs_checker']     = { 'type': 'watchdogs_checker/pylint' }
   let g:quickrun_config['javascript/watchdogs_checker'] = { 'type': 'watchdogs_checker/eslint' }
 
   call watchdogs#setup(g:quickrun_config)
@@ -69,6 +72,11 @@ hook_source = '''
 
 [[plugins]]
 repo      = 'thinca/vim-quickrun'
+on_cmd    = 'QuickRun'
+hook_add = '''
+  nnoremap <silent>,i :QuickRun -mode n<CR>
+  vnoremap <silent>,i :QuickRun -mode v<CR>
+'''
 
 [[plugins]]
 repo      = 'osyo-manga/shabadou.vim'
