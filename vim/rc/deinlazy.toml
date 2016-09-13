@@ -4,9 +4,10 @@ depends = 'vimproc.vim'
 on_cmd = 'Unite'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
 hook_add = '''
-  noremap <silent> g\| :Unite file -default-action=right<CR>
-  noremap <silent> g- :Unite file -default-action=below<CR>
-  noremap <silent> gc :Unite file -default-action=tabopen<CR>
+  noremap <silent>g\| :rightbelow vnew<CR>
+  noremap <silent>g-  :rightbelow new<CR>
+  noremap <silent>gc  :tabnew<CR>
+  noremap <silent>go  :Unite file<CR>
 '''
 
 [[plugins]]
