@@ -124,7 +124,6 @@ nnoremap <silent><Esc><Esc> :nohlsearch<CR>
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
-nnoremap q <Nop>
 noremap ; :
 noremap : ;
 
