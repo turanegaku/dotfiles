@@ -94,7 +94,7 @@ set wildmenu
 set wildmode=longest:full,full
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,utf-8,sjis
+set fileencodings=ascii,iso-2022-jp,euc-jp,utf-8,sjis
 
 augroup vimrc
   autocmd!
