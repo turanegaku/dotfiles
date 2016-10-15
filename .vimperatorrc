@@ -1,5 +1,8 @@
 " vim: set ft=vim:
 
+" FireFoxの更新に対する対策 #590
+js services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"
+
 set focuscontent
 set hlsearch
 set hintchars=jfnvurhgytbkdmcielsxo
@@ -8,6 +11,15 @@ set! ui.caretWidth=4
 
 noremap d <M-w>
 noremap ,r :source<Space>~/.vimperatorrc<CR>
+
+" SKKの決定時にウザい
+noremap <C-m> <CR>
+cnoremap <C-m> <CR>
+inoremap <C-m> <CR>
+
+" 勝手にブックマークされてうざい
+noremap a <Nop>
+noremap A <Nop>
 
 nnoremap <Esc><Esc> :nohlsearch<CR>
 " 移動系
