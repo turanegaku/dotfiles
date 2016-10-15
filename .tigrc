@@ -10,7 +10,7 @@ bind generic G move-last-line
 bind generic G none
 bind generic g move-first-line
 
-bind main    R !git rebase -i %(commit)
+bind main    E !git rebase -i %(commit)
 
 
 ########
