@@ -32,19 +32,32 @@ hook_add  = 'let g:extra_whitespace_ignored_filetypes = ["unite", "help"]'
 [[plugins]]
 repo      = 'itchyny/lightline.vim'
 hook_add  = '''
-  let g:lightline = {
-  \     'colorscheme': 'Tomorrow_Night'
-  \ }
+  let g:lightline = {'colorscheme': 'Tomorrow'}
+
+  if $ITERM_PROFILE != 'Light'
+    let g:lightline['colorscheme'] = 'Tomorrow_Night'
+  endif
 '''
 
 [[plugins]]
 repo      = 'w0ng/vim-hybrid'
 hook_add  = '''
-  set background=dark
-  colorscheme hybrid
-  augroup scheme
-    autocmd!
-    autocmd ColorScheme hybrid hi CursorLine ctermbg=236
-    autocmd ColorScheme hybrid hi LineNr ctermfg=245
-  augroup END
+  if !exists("$ITERM_PROFILE") || $ITERM_PROFILE != 'Light'
+    colorscheme hybrid
+    set background=dark
+
+    augroup scheme
+      autocmd!
+      autocmd ColorScheme hybrid hi CursorLine ctermbg=236
+      autocmd ColorScheme hybrid hi LineNr ctermfg=245
+    augroup END
+  endif
+'''
+
+[[plugins]]
+repo      = 'altercation/vim-colors-solarized'
+hook_add  = '''
+  if exists("$ITERM_PROFILE") && $ITERM_PROFILE == 'Light'
+    colorscheme solarized
+  endif
 '''
