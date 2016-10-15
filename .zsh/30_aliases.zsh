@@ -12,7 +12,7 @@ alias ti=tig
 alias vi=vim
 alias v=vim
 alias py=python
-alias ip=ipython
+alias ipy=ipython
 
 alias grep='grep --color'
 # if [[ -f /bin/zsh ]]; then
