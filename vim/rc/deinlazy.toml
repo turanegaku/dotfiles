@@ -1,9 +1,9 @@
 [[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'vimproc.vim'
-on_cmd = 'Unite'
+repo        = 'Shougo/unite.vim'
+depends     = 'vimproc.vim'
+on_cmd      = 'Unite'
 hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
-hook_add = '''
+hook_add    = '''
   noremap <silent>g\| :rightbelow vnew<CR>
   noremap <silent>g-  :rightbelow new<CR>
   noremap <silent>gc  :tabnew<CR>
@@ -11,12 +11,17 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo      = 'tyru/caw.vim'
-on_map   = '<Plug>(caw:hatpos:toggle)'
-hook_add  = 'map <C-k> <Plug>(caw:hatpos:toggle)'
+repo        = 'tyru/caw.vim'
+on_map      = '<Plug>(caw:hatpos:toggle)'
+hook_add    = 'map <C-k> <Plug>(caw:hatpos:toggle)'
 
 [[plugins]]
-repo      = 'vim-jp/vimdoc-ja'
+repo        = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo        = 'osyo-manga/vim-over'
+on_map      = 'OverCommandLine'
+hook_add    = 'noremap <silent> ,/ :OverCommandLine<CR>%s/'
 
 
 # lint
@@ -40,9 +45,9 @@ repo      = 'vim-jp/vimdoc-ja'
 # '''
 
 [[plugins]]
-repo    = 'osyo-manga/vim-watchdogs'
-depends = ['vim-quickrun', 'vimproc.vim', 'shabadou.vim', 'vim-hier']
-on_ft = ['c', 'cpp', 'javascript', 'python', 'ruby']
+repo        = 'osyo-manga/vim-watchdogs'
+depends     = ['vim-quickrun', 'vimproc.vim', 'shabadou.vim', 'vim-hier']
+on_ft       = ['c', 'cpp', 'javascript', 'python', 'ruby']
 hook_source = '''
   noremap <silent>,w :WatchdogsRunSilent<CR>
 
@@ -71,25 +76,25 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo      = 'thinca/vim-quickrun'
-on_cmd    = 'QuickRun'
-hook_add = '''
+repo        = 'thinca/vim-quickrun'
+on_cmd      = 'QuickRun'
+hook_add    = '''
   nnoremap <silent>,i :QuickRun -mode n<CR>
   vnoremap <silent>,i :QuickRun -mode v<CR>
 '''
 
 [[plugins]]
-repo      = 'osyo-manga/shabadou.vim'
+repo        = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
-repo      = 'jceb/vim-hier'
+repo        = 'jceb/vim-hier'
 
 # cpp
 
 ## format
 [[plugins]]
-repo = 'rhysd/vim-clang-format'
-on_ft = ['c', 'cpp']
+repo        = 'rhysd/vim-clang-format'
+on_ft       = ['c', 'cpp']
 hook_source = '''
   let g:clang_format#command = g:clang_format_exec
   noremap ,f :ClangFormat<CR>
@@ -97,8 +102,8 @@ hook_source = '''
 
 ## completion
 [[plugins]]
-repo = 'justmao945/vim-clang'
-on_ft = ['c', 'cpp']
+repo        = 'justmao945/vim-clang'
+on_ft       = ['c', 'cpp']
 hook_source = '''
   let g:clang_auto = 1
   let g:clang_c_completeopt = 'menuone'
@@ -108,12 +113,12 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo        = 'Shougo/neosnippet-snippets'
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = 'neosnippet-snippets'
-on_event = 'InsertEnter'
-hook_add = '''
+repo        = 'Shougo/neosnippet.vim'
+depends     = 'neosnippet-snippets'
+on_event    = 'InsertEnter'
+hook_add    = '''
   let g:neosnippet#snippets_directory='~/.vim/rc/snippets/'
   imap <expr><CR> neosnippet#expandable() ?
   \ "\<Plug>(neosnippet_expand)" : "\<CR>"
@@ -128,11 +133,11 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-on_event = 'InsertEnter'
-depends = 'vimproc.vim'
-if = "has('lua')"
-hook_add = '''
+repo        = 'Shougo/neocomplete.vim'
+on_event    = 'InsertEnter'
+depends     = 'vimproc.vim'
+if          = "has('lua')"
+hook_add    = '''
   let g:neocomplete#enable_at_startup               = 1
 '''
 hook_source = '''
@@ -148,8 +153,9 @@ hook_source = '''
 
 
 [[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = 'python'
+repo        =  'davidhalter/jedi-vim'
+on_ft       = 'python'
+if          = "has('python')"
 hook_source = '''
   let g:jedi#use_tabs_not_buffers = 1
   let g:jedi#popup_select_first = 0
@@ -161,24 +167,24 @@ hook_source = '''
   let g:jedi#usages_command = "<leader>n"
   let g:jedi#rename_command = "<leader>R"
 '''
-hook_add = 'autocmd FileType python setlocal completeopt-=preview'
+hook_add    = 'autocmd FileType python setlocal completeopt-=preview'
 
 
 # Language
 
 [[plugins]] # toml syntax
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-hook_add = 'autocmd BufWritePost * call dein#clear_state()'
+repo        = 'cespare/vim-toml'
+on_ft       = 'toml'
+hook_add    = 'autocmd BufWritePost * call dein#clear_state()'
 
 [[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = 'pug'
+repo        = 'digitaltoad/vim-pug'
+on_ft       = 'pug'
 
 [[plugins]]
-repo = 'keith/tmux.vim'
-on_ft = 'tmux'
+repo        = 'keith/tmux.vim'
+on_ft       = 'tmux'
 
 [[plugins]]
-repo = 'isRuslan/vim-es6'
-on_ft = 'javascript'
+repo        = 'isRuslan/vim-es6'
+on_ft       = 'javascript'

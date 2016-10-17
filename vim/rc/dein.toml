@@ -1,11 +1,11 @@
 [[plugins]]
-repo      = 'Shougo/dein.vim'
-hook_add  = '''
+repo        = 'Shougo/dein.vim'
+hook_add    = '''
   noremap ,r :echo dein#clear_state()<CR>
 '''
 
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
+repo        = 'Shougo/vimproc.vim'
 hook_post_update = '''
   if dein#util#_is_windows()
     let cmd = 'tools\\update-dll-mingw'
@@ -23,15 +23,15 @@ hook_post_update = '''
 # Appearence
 
 [[plugins]]
-repo      = 'nathanaelkane/vim-indent-guides'
+repo        = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
-repo      = 'bronson/vim-trailing-whitespace'
-hook_add  = 'let g:extra_whitespace_ignored_filetypes = ["unite", "help"]'
+repo        = 'bronson/vim-trailing-whitespace'
+hook_add    = 'let g:extra_whitespace_ignored_filetypes = ["unite", "help"]'
 
 [[plugins]]
-repo      = 'itchyny/lightline.vim'
-hook_add  = '''
+repo        = 'itchyny/lightline.vim'
+hook_add    = '''
   let g:lightline = {'colorscheme': 'Tomorrow'}
 
   if $ITERM_PROFILE != 'Light'
@@ -40,8 +40,8 @@ hook_add  = '''
 '''
 
 [[plugins]]
-repo      = 'w0ng/vim-hybrid'
-hook_add  = '''
+repo        = 'w0ng/vim-hybrid'
+hook_add    = '''
   if !exists("$ITERM_PROFILE") || $ITERM_PROFILE != 'Light'
     colorscheme hybrid
     set background=dark
@@ -55,8 +55,8 @@ hook_add  = '''
 '''
 
 [[plugins]]
-repo      = 'altercation/vim-colors-solarized'
-hook_add  = '''
+repo        = 'altercation/vim-colors-solarized'
+hook_add    = '''
   if exists("$ITERM_PROFILE") && $ITERM_PROFILE == 'Light'
     colorscheme solarized
   endif
