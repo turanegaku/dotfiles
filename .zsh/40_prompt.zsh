@@ -66,7 +66,7 @@ local host="%{$fg[green]%}%m"
 [ "$SSH_CLIENT" ] && host+="$emoji[connect]"
 local git='$_vcs_git_indicator'
 local now="%{$fg[white]%}[%*]"
-local st=$'%{%(?.$fg[green].$fg[red])%}$'
+local st=$'%{%(?.$fg[green].$fg[red])%}%%'
 local reset="%{$reset_color%}"
 
 PROMPT="$nl$bold$mark $dir $user $host $now$nl$st $reset"
