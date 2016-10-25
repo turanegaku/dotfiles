@@ -47,7 +47,7 @@ function _vcs_git_indicator () {
     git_info[untracked]=$(( $#git_status - ${git_info[changed]} ))
     git_info[clean]=$(( $#git_status == 0 ))
 
-    git_indicator=("%{%F{white}%}${git_info[branch]}%{%f%}")
+    git_indicator=("%{%F{default}%}${git_info[branch]}%{%f%}")
     (( ${git_info[clean]}     )) && git_indicator+=("${emoji[git_clean]}")
     (( ${git_info[changed]}   )) && git_indicator+=("${emoji[git_changed]}  %{%F{yellow}%}${git_info[changed]} changed%{%f%}")
     (( ${git_info[untracked]} )) && git_indicator+=("${emoji[git_untracked]}  %{%F{red}%}${git_info[untracked]} untracked%{%f%}")
@@ -65,7 +65,7 @@ local user="%{$fg[cyan]%}%n"
 local host="%{$fg[green]%}%m"
 [ "$SSH_CLIENT" ] && host+="$emoji[connect]"
 local git='$_vcs_git_indicator'
-local now="%{$fg[white]%}[%*]"
+local now="%{$fg[default]%}[%*]"
 local st=$'%{%(?.$fg[green].$fg[red])%}%%'
 local reset="%{$reset_color%}"
 
