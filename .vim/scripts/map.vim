@@ -1,9 +1,19 @@
-" map
-noremap <Space>h ^
-noremap <Space>l $
+" prefix
+nmap      <Space> [Space]
+xmap      <Space> [Space]
+nnoremap  [Space] <Nop>
+xnoremap  [Space] <Nop>
 
-nnoremap <silent><Space>o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
-nnoremap <silent><Space>O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+" most powerful mapping
+noremap ; :
+noremap : ;
+inoremap jk <Esc>
+onoremap jk <Esc>
+nnoremap <silent><Esc><Esc> :nohlsearch<CR>
+
+nnoremap <silent>[Space]o :<C-u>for i in range(v:count1) \| call append(line('.'), '') \| endfor<CR>
+nnoremap <silent>[Space]O :<C-u>for i in range(v:count1) \| call append(line('.')-1, '') \| endfor<CR>
+vnoremap <silent>[Space]s !sort<CR>
 
 noremap gn gt
 noremap gp gT
@@ -13,24 +23,31 @@ noremap gk <C-w>k
 noremap gl <C-w>l
 noremap gx <C-w>x
 
-nnoremap <silent><Esc><Esc> :nohlsearch<CR>
-
+" <Nop> series
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
-noremap ; :
-noremap : ;
+nnoremap q: <Nop>
+nnoremap q/ <Nop>
+nnoremap q? <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
-inoremap jk <Esc>
+" move
+noremap [Space]h ^
+noremap [Space]l $
 inoremap <C-b> <Left>
+cnoremap <C-b> <Left>
 inoremap <C-f> <Right>
-inoremap <Nul> <C-x><C-o>
-
-vnoremap s !sort<CR>
+cnoremap <C-f> <Right>
+inoremap <C-a> <Home>
+cnoremap <C-a> <Home>
+inoremap <C-e> <End>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
 
 cnoremap <C-r> <C-f>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <C-d> <Del>
+inoremap <Nul> <C-x><C-o>
+
