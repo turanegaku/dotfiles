@@ -1,0 +1,63 @@
+[[plugins]]
+repo        = 'Shougo/dein.vim'
+hook_add    = '''
+  noremap ,r :echo dein#clear_state()<CR>
+'''
+
+[[plugins]]
+repo        = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+
+
+# Appearence
+
+[[plugins]]
+repo        = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo        = 'bronson/vim-trailing-whitespace'
+hook_add    = 'let g:extra_whitespace_ignored_filetypes = ["unite", "help"]'
+
+[[plugins]]
+repo        = 'itchyny/lightline.vim'
+hook_add    = '''
+  let g:lightline = {'colorscheme': 'Tomorrow'}
+
+  if $ITERM_PROFILE != 'Light'
+    let g:lightline['colorscheme'] = 'Tomorrow_Night'
+  endif
+'''
+
+[[plugins]]
+repo        = 'w0ng/vim-hybrid'
+hook_add    = '''
+  if !exists("$ITERM_PROFILE") || $ITERM_PROFILE != 'Light'
+    colorscheme hybrid
+    set background=dark
+
+    augroup scheme
+      autocmd!
+      autocmd ColorScheme hybrid hi CursorLine ctermbg=236
+      autocmd ColorScheme hybrid hi LineNr ctermfg=245
+    augroup END
+  endif
+'''
+
+[[plugins]]
+repo        = 'altercation/vim-colors-solarized'
+hook_add    = '''
+  if exists("$ITERM_PROFILE") && $ITERM_PROFILE == 'Light'
+    colorscheme solarized
+  endif
+'''

@@ -1,0 +1,202 @@
+[[plugins]]
+repo        = 'Shougo/unite.vim'
+depends     = 'vimproc.vim'
+on_cmd      = 'Unite'
+hook_source = 'source ~/.vim/rc/plugins/unite.rc.vim'
+hook_add    = '''
+  noremap <silent>g\| :rightbelow vnew<CR>
+  noremap <silent>g-  :rightbelow new<CR>
+  noremap <silent>gc  :tabnew<CR>
+  noremap <silent>go  :Unite file<CR>
+'''
+
+[[plugins]]
+repo        = 'tyru/caw.vim'
+on_map      = '<Plug>(caw:hatpos:toggle)'
+hook_add    = 'map <C-k> <Plug>(caw:hatpos:toggle)'
+
+[[plugins]]
+repo        = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo        = 'osyo-manga/vim-over'
+on_map      = 'OverCommandLine'
+hook_add    = 'noremap <silent> ,/ :OverCommandLine<CR>%s/'
+
+
+# lint
+
+# [[plugins]]
+# repo = 'scrooloose/syntastic'
+# on_ft = ['c', 'cpp', 'javascript']
+# hook_source = '''
+#   let g:syntastic_c_compiler = g:clang_exec
+#   let g:syntastic_cpp_compiler = g:clang_plug_exec
+#
+#   let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+#
+#   let g:syntastic_always_populate_loc_list = 0
+#   let g:syntastic_auto_loc_list = 1
+#
+#   let g:syntastic_check_on_open = 0
+#   let g:syntastic_check_on_wq = 0
+#   let g:syntastic_c_check_header = 1
+#   let g:syntastic_cpp_check_header = 1
+# '''
+
+[[plugins]]
+repo        = 'osyo-manga/vim-watchdogs'
+depends     = ['vim-quickrun', 'vimproc.vim', 'shabadou.vim', 'vim-hier']
+on_ft       = ['c', 'cpp', 'javascript', 'python', 'ruby']
+hook_source = '''
+  noremap <silent>,w :WatchdogsRunSilent<CR>
+
+  let g:watchdogs_check_BufWritePost_enable = 1
+  let g:watchdogs_check_BufWritePost_enable_on_wq = 0
+  let g:watchdogs_check_CursorHold_enable = 0
+
+  let g:quickrun_config = get(g:, 'quickrun_config', {})
+
+  let g:quickrun_config['watchdogs_checker/_'] = {
+    \   'runner/vimproc/updatetime': 40,
+    \   'outputter': 'loclist',
+    \   'outputter/loclist/open_cmd': '',
+    " \   'outputter/loclist/open_cmd': 'lwindow',
+    \ }
+
+  let g:quickrun_config['watchdogs_checker/clang']      = { 'command': g:clang_exec }
+  let g:quickrun_config['watchdogs_checker/clang++']    = { 'command': g:clang_plus_exec, 'cmdopt': '-std=gnu++0x -Wall' }
+  let g:quickrun_config['watchdogs_checker/pylint']     = { 'command': 'pylint' }
+  let g:quickrun_config['c/watchdogs_checker']          = { 'type': 'watchdogs_checker/clang' }
+  let g:quickrun_config['cpp/watchdogs_checker']        = { 'type': 'watchdogs_checker/clang++' }
+  let g:quickrun_config['python/watchdogs_checker']     = { 'type': 'watchdogs_checker/pylint' }
+  let g:quickrun_config['javascript/watchdogs_checker'] = { 'type': 'watchdogs_checker/eslint' }
+
+  call watchdogs#setup(g:quickrun_config)
+'''
+
+[[plugins]]
+repo        = 'thinca/vim-quickrun'
+on_cmd      = 'QuickRun'
+hook_add    = '''
+  nnoremap <silent>,i :QuickRun -mode n<CR>
+  vnoremap <silent>,i :QuickRun -mode v<CR>
+'''
+
+[[plugins]]
+repo        = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repo        = 'jceb/vim-hier'
+
+# cpp
+
+## format
+[[plugins]]
+repo        = 'rhysd/vim-clang-format'
+on_ft       = ['c', 'cpp']
+hook_source = '''
+  let g:clang_format#command = g:clang_format_exec
+  noremap ,f :ClangFormat<CR>
+'''
+
+## completion
+[[plugins]]
+repo        = 'justmao945/vim-clang'
+on_ft       = ['c', 'cpp']
+hook_source = '''
+  let g:clang_auto = 1
+  let g:clang_c_completeopt = 'menuone'
+  let g:clang_cpp_completeopt = 'longest,menuone'
+  let g:clang_c_options = '-w'
+  let g:clang_enable_format_command = 0
+'''
+
+[[plugins]]
+repo        = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repo        = 'Shougo/neosnippet.vim'
+depends     = 'neosnippet-snippets'
+on_event    = 'InsertEnter'
+hook_add    = '''
+  let g:neosnippet#snippets_directory='~/.vim/rc/snippets/'
+  imap <expr><CR> neosnippet#expandable() ?
+  \ "\<Plug>(neosnippet_expand)" : "\<CR>"
+
+  imap <expr><TAB>
+   \ pumvisible() ? "\<C-n>" :
+   \ neosnippet#expandable_or_jumpable() ?
+   \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+'''
+
+[[plugins]]
+repo        = 'Shougo/neocomplete.vim'
+on_event    = 'InsertEnter'
+depends     = 'vimproc.vim'
+if          = "has('lua')"
+hook_add    = '''
+  let g:neocomplete#enable_at_startup               = 1
+'''
+hook_source = '''
+  let g:neocomplete#auto_completion_start_length    = 3
+  let g:neocomplete#enable_ignore_case              = 1
+  let g:neocomplete#enable_smart_case               = 1
+  let g:neocomplete#use_vimproc                     = 1
+  let g:neocomplete#sources#buffer#cache_limit_size = 1000000
+  let g:neocomplete#sources#tags#cache_limit_size   = 30000000
+  let g:neocomplete#enable_fuzzy_completion         = 1
+  let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
+
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  # autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+'''
+
+
+[[plugins]]
+repo        =  'davidhalter/jedi-vim'
+on_ft       = 'python'
+# if          = "has('python') || has('python3')"
+hook_source = '''
+  let g:jedi#use_tabs_not_buffers = 1
+  let g:jedi#popup_select_first = 0
+  let g:jedi#popup_on_dot = 0
+  let g:jedi#goto_command = "<leader>d"
+  let g:jedi#goto_assignments_command = "<leader>g"
+  let g:jedi#goto_definitions_command = ""
+  " let g:jedi#documentation_command = "K"
+  let g:jedi#usages_command = "<leader>n"
+  let g:jedi#rename_command = "<leader>R"
+'''
+hook_add    = 'autocmd FileType python setlocal completeopt-=preview'
+
+
+# Language
+
+[[plugins]] # toml syntax
+repo        = 'cespare/vim-toml'
+on_ft       = 'toml'
+hook_add    = 'autocmd BufWritePost * call dein#clear_state()'
+
+[[plugins]]
+repo        = 'digitaltoad/vim-pug'
+on_ft       = 'pug'
+
+[[plugins]]
+repo        = 'keith/tmux.vim'
+on_ft       = 'tmux'
+
+[[plugins]]
+repo        = 'isRuslan/vim-es6'
+on_ft       = 'javascript'
+
+[[plugins]]
+repo        = 'othree/html5.vim'
+on_ft       = 'html'
+
+
