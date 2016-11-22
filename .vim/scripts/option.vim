@@ -30,7 +30,7 @@ set backspace=indent,start
 
 set helplang=en,ja
 
-set clipboard+=autoselect
+" set clipboard+=autoselect
 set visualbell t_vb=
 
 set wildmenu
