@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<root>
+    <appdef>
+        <appname>YoruFukurou</appname>
+        <equal>com.YoruFukurouProject.YoruFukurou</equal>
+    </appdef>
+    <appdef>
+        <appname>iTerm2</appname>
+        <equal>com.googlecode.iterm2</equal>
+    </appdef>
+
+    <item>
+        <name>SubMouseButton</name>
+        <identifier>remap.submouse_button</identifier>
+        <autogen>
+            --PointingButtonToKey-- PointingButton::BUTTON4, KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L
+        </autogen>
+        <autogen>
+            --PointingButtonToKey-- PointingButton::BUTTON5, KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L
+        </autogen>
+    </item>
+
+    <item>
+        <name>key bind YoruFukurou</name>
+        <item>
+            <name>open `U`ser YoruFukurou</name>
+            <identifier>private.app_yorufukurou_open_user</identifier>
+            <only>YoruFukurou</only>
+            <uielementrole_only>AXTable</uielementrole_only>
+            <autogen>
+                --KeyToKey-- KeyCode::U, ModifierFlag::NONE, KeyCode::2, ModifierFlag::COMMAND_R
+            </autogen>
+        </item>
+        <item>
+            <name>top to g</name>
+            <identifier>private.app_yorufukurou_top_g</identifier>
+            <only>YoruFukurou</only>
+            <uielementrole_only>AXTable</uielementrole_only>
+            <autogen>
+                --KeyToKey-- KeyCode::G, ModifierFlag::NONE, KeyCode::0
+            </autogen>
+        </item>
+    </item>
+
+    <item>
+        <name>Disable keys in iTerm2</name>
+        <item>
+            <name>Disable Enter</name>
+            <identifier>private.iterm_disable_enter</identifier>
+            <only>iTerm2</only>
+            <autogen>
+                --KeyToKey-- KeyCode::RETURN, ModifierFlag::NONE, KeyCode::VK_NONE
+            </autogen>
+        </item>
+        <item>
+            <name>Disable Tab</name>
+            <identifier>private.iterm_disable_tab</identifier>
+            <only>iTerm2</only>
+            <autogen>
+                --KeyToKey-- KeyCode::TAB, ModifierFlag::NONE, KeyCode::VK_NONE
+            </autogen>
+        </item>
+    </item>
+
+</root>
