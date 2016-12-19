@@ -21,7 +21,8 @@ repo        = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo        = 'osyo-manga/vim-over'
 on_map      = 'OverCommandLine'
-hook_add    = 'noremap <silent> ,/ :OverCommandLine<CR>%s/'
+hook_add    = 'nnoremap <silent> ,/ :OverCommandLine<CR>%s/'
+hook_add    = 'vnoremap <silent> ,/ :OverCommandLine<CR>s/'
 
 
 # lint
