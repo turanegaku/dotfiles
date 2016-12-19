@@ -51,3 +51,13 @@ cnoremap <C-d> <Del>
 cnoremap <C-r> <C-f>
 inoremap <Nul> <C-x><C-o>
 
+
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
