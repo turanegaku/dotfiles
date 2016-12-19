@@ -9,26 +9,100 @@
         <equal>com.googlecode.iterm2</equal>
     </appdef>
 
+    <devicevendordef>
+        <vendorname>ELECOM_Mouse</vendorname>
+        <vendorid>0x056e</vendorid>
+    </devicevendordef>
+
     <item>
-        <name>SubMouseButton</name>
-        <identifier>remap.submouse_button</identifier>
+        <name>⌘+Space typed, also type eisuu for Alfred</name>
+        <identifier>private.command_space_eisuu</identifier>
         <autogen>
-            --PointingButtonToKey-- PointingButton::BUTTON4, KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L
+            --KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_L,
+
+            KeyCode::JIS_EISUU,
+            KeyCode::SPACE, ModifierFlag::COMMAND_L
         </autogen>
-        <autogen>
-            --PointingButtonToKey-- PointingButton::BUTTON5, KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L
-        </autogen>
+    </item>
+
+    <item>
+        <name>Mouse Settings</name>
+
+        <item>
+            <name>Reverse scroll wheel in mouse.</name>
+            <identifier>private.remap.reverse_mouse_scrolling</identifier>
+            <device_only>DeviceVendor::ELECOM_Mouse</device_only>
+            <autogen>
+                __FlipScrollWheel__
+                Option::FLIPSCROLLWHEEL_VERTICAL,
+            </autogen>
+        </item>
+        <item>
+            <name>SubMouseButton</name>
+            <identifier>remap.submouse_button</identifier>
+            <autogen>
+                --PointingButtonToKey--
+                PointingButton::BUTTON4,
+
+                KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L
+            </autogen>
+            <autogen>
+                --PointingButtonToKey--
+                PointingButton::BUTTON5,
+
+                KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
     </item>
 
     <item>
         <name>key bind YoruFukurou</name>
         <item>
-            <name>open `U`ser YoruFukurou</name>
-            <identifier>private.app_yorufukurou_open_user</identifier>
+            <name>`I`nsert new tweet</name>
+            <identifier>private.yorufukurou.insert</identifier>
             <only>YoruFukurou</only>
             <uielementrole_only>AXTable</uielementrole_only>
             <autogen>
-                --KeyToKey-- KeyCode::U, ModifierFlag::NONE, KeyCode::2, ModifierFlag::COMMAND_R
+                --KeyToKey--
+                KeyCode::I, ModifierFlag::NONE,
+
+                KeyCode::N, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
+        <item>
+            <name>`Y`ank text</name>
+            <identifier>private.yorufukurou.yank</identifier>
+            <only>YoruFukurou</only>
+            <uielementrole_only>AXTable</uielementrole_only>
+            <autogen>
+                --KeyToKey--
+                KeyCode::Y, ModifierFlag::NONE,
+
+                KeyCode::C, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
+        <item>
+            <name>back to home `U` key</name>
+            <identifier>private.yorufukurou.undo</identifier>
+            <only>YoruFukurou</only>
+            <uielementrole_only>AXTable</uielementrole_only>
+            <autogen>
+                --KeyToKey--
+                KeyCode::U, ModifierFlag::NONE,
+
+                KeyCode::ESCAPE
+            </autogen>
+        </item>
+        <item>
+            <name>`O`pen Talk view</name>
+            <identifier>private.yorufukurou.open</identifier>
+            <only>YoruFukurou</only>
+            <uielementrole_only>AXTable</uielementrole_only>
+            <autogen>
+                --KeyToKey--
+                KeyCode::O, ModifierFlag::NONE,
+
+                KeyCode::3, ModifierFlag::COMMAND_R
             </autogen>
         </item>
         <item>
@@ -37,7 +111,10 @@
             <only>YoruFukurou</only>
             <uielementrole_only>AXTable</uielementrole_only>
             <autogen>
-                --KeyToKey-- KeyCode::G, ModifierFlag::NONE, KeyCode::0
+                --KeyToKey--
+                KeyCode::G, ModifierFlag::NONE,
+
+                KeyCode::0
             </autogen>
         </item>
     </item>
@@ -46,18 +123,24 @@
         <name>Disable keys in iTerm2</name>
         <item>
             <name>Disable Enter</name>
-            <identifier>private.iterm_disable_enter</identifier>
+            <identifier>private.iterm.disable_enter</identifier>
             <only>iTerm2</only>
             <autogen>
-                --KeyToKey-- KeyCode::RETURN, ModifierFlag::NONE, KeyCode::VK_NONE
+                --KeyToKey--
+                KeyCode::RETURN, ModifierFlag::NONE,
+
+                KeyCode::VK_NONE
             </autogen>
         </item>
         <item>
             <name>Disable Tab</name>
-            <identifier>private.iterm_disable_tab</identifier>
+            <identifier>private.iterm.disable_tab</identifier>
             <only>iTerm2</only>
             <autogen>
-                --KeyToKey-- KeyCode::TAB, ModifierFlag::NONE, KeyCode::VK_NONE
+                --KeyToKey--
+                KeyCode::TAB, ModifierFlag::NONE,
+
+                KeyCode::VK_NONE
             </autogen>
         </item>
     </item>
