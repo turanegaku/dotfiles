@@ -6,15 +6,21 @@ alias ll='ls -lh'
 alias ls='ls -G'
 
 alias g++11='g++ -std=c++11'
-has 'tmux' && alias t=tmux
-alias ta='t a -t'
 alias ti=tig
 alias vi=vim
 alias v=vim
+alias c=cat
 alias py=python
 alias ipy=ipython
 
+if has 'tmux'; then
+  alias t=tmux
+  alias ta='t a -t'
+fi
+
 alias grep='grep --color'
+alias pgrep='ps aux | grep -v grep | grep'
+
 # if [[ -f /bin/zsh ]]; then
 #   has 'gomi' && alias rm='gomi'
 # fi
@@ -39,6 +45,7 @@ if has 'git'; then
   alias gll="g lg"
   alias gp="g push"
   alias gg="g merge --no-ff"
+  alias gf="g merge --ff-only"
   alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
 fi
 
