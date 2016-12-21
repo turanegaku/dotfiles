@@ -117,6 +117,17 @@
                 KeyCode::0
             </autogen>
         </item>
+        <item>
+            <name>Disable BS</name>
+            <identifier>private.yorufukurou.disable_bs</identifier>
+            <only>YoruFukurou</only>
+            <autogen>
+                --KeyToKey--
+                KeyCode::DELETE, ModifierFlag::NONE,
+
+                KeyCode::VK_NONE
+            </autogen>
+        </item>
     </item>
 
     <item>
@@ -139,6 +150,17 @@
             <autogen>
                 --KeyToKey--
                 KeyCode::TAB, ModifierFlag::NONE,
+
+                KeyCode::VK_NONE
+            </autogen>
+        </item>
+        <item>
+            <name>Disable BS</name>
+            <identifier>private.iterm.disable_bs</identifier>
+            <only>iTerm2</only>
+            <autogen>
+                --KeyToKey--
+                KeyCode::DELETE, ModifierFlag::NONE,
 
                 KeyCode::VK_NONE
             </autogen>
