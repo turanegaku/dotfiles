@@ -8,8 +8,8 @@ export PATH=/usr/local/bin:$PATH
 
 # zplug
 if [[ -f ~/.zplug/init.zsh ]]; then
-  source ~/.zplug/init.zsh
   export ZPLUG_LOADFILE=${HOME}/.zsh/zplug.zsh
+  source ~/.zplug/init.zsh
 
 
   if ! zplug check --verbose; then
@@ -20,7 +20,9 @@ if [[ -f ~/.zplug/init.zsh ]]; then
       echo
     fi
   fi
-  zplug load --verbose
+
+  # zplug load --verbose
+  zplug load
 fi
 
 # anyenv
