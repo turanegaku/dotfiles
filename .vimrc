@@ -37,9 +37,14 @@ function! s:load(pattern) abort
   return found
 endfunction
 
+" let s:is_colemak = system('/Applications/Karabiner.app/Contents/Library/bin/karabiner selected')
 
 call s:load('dein.vim')
+" if s:is_colemak
+" call s:load('map_colemak.vim')
+" else
 call s:load('map.vim')
+" endif
 call s:load('option.vim')
 
 filetype plugin indent on
