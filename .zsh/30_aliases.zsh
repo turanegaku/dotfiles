@@ -46,15 +46,17 @@ if has 'git'; then
   alias gp="g push"
   alias gg="g merge --no-ff"
   alias gf="g merge --ff-only"
-  alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
+  # alias -g LR='`git branch -a | peco --query "remotes/ " --prompt "GIT REMOTE BRANCH>" | head -n 1 | sed "s/^\*\s*//" | sed "s/remotes\/[^\/]*\/\(\S*\)/\1 \0/"`'
 fi
 
 # Global
-alias -g L='| less'
-alias -g G='| grep'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g S='| sort'
-alias -g N=' >/dev/null 2>&1'
-alias -g N1=' >/dev/null'
-alias -g N2=' 2>/dev/null'
+if [[ $0 =~ .*"zsh" ]]; then
+  alias -g L='| less'
+  alias -g G='| grep'
+  alias -g H='| head'
+  alias -g T='| tail'
+  alias -g S='| sort'
+  alias -g N=' >/dev/null 2>&1'
+  alias -g N1=' >/dev/null'
+  alias -g N2=' 2>/dev/null'
+fi
