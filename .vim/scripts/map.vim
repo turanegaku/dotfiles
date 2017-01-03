@@ -23,6 +23,12 @@ noremap gk <C-w>k
 noremap gl <C-w>l
 noremap gx <C-w>x
 
+noremap *y "*y
+noremap *Y "*Y
+noremap *p "*p
+noremap *P "*P
+noremap _d "_d
+
 " <Nop> series
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
