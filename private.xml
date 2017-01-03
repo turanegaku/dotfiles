@@ -8,10 +8,23 @@
         <appname>iTerm2</appname>
         <equal>com.googlecode.iterm2</equal>
     </appdef>
+    <appdef>
+        <appname>Chrome</appname>
+        <equal>com.google.Chrome</equal>
+    </appdef>
+
+    <windownamedef>
+        <name>Granblue</name>
+        <regex>グランブルーファンタジー</regex>
+    </windownamedef>
 
     <devicevendordef>
         <vendorname>ELECOM_Mouse</vendorname>
         <vendorid>0x056e</vendorid>
+    </devicevendordef>
+    <devicevendordef>
+        <vendorname>HHKB</vendorname>
+        <vendorid>0x0853</vendorid>
     </devicevendordef>
 
     <item>
@@ -23,6 +36,33 @@
             KeyCode::JIS_EISUU,
             KeyCode::SPACE, ModifierFlag::COMMAND_L
         </autogen>
+    </item>
+
+    <item>
+        <name>リロードグラブル</name>
+        <item>
+            <name>Space reload on chrome for granblue fantasy when using HHKB</name>
+            <identifier>private.space_reload_fantasy</identifier>
+            <only>Chrome</only>
+            <device_only>DeviceVendor::HHKB</device_only>
+            <windowname_only>Granblue</windowname_only>
+            <autogen>
+                --KeyToKey-- KeyCode::SPACE,
+
+                KeyCode::R, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
+        <item>
+            <name>Option R reload on chrome for granblue fantasy</name>
+            <identifier>private.command_reload_fantasy</identifier>
+            <only>Chrome</only>
+            <windowname_only>Granblue</windowname_only>
+            <autogen>
+                --KeyToKey-- KeyCode::OPTION_R,
+
+                KeyCode::R, ModifierFlag::COMMAND_L
+            </autogen>
+        </item>
     </item>
 
     <item>
