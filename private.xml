@@ -27,8 +27,7 @@
         <vendorid>0x0853</vendorid>
     </devicevendordef>
 
-    <item>
-        <name>⌘+Space typed, also type eisuu for Alfred</name>
+    <item> <name>Alfredが呼ばれたとき、英数も押す。</name>
         <identifier>private.command_space_eisuu</identifier>
         <autogen>
             --KeyToKey-- KeyCode::SPACE, ModifierFlag::COMMAND_L,
@@ -38,22 +37,19 @@
         </autogen>
     </item>
 
-    <item>
-        <name>リロードグラブル</name>
-        <item>
-            <name>Space reload on chrome for granblue fantasy when using HHKB</name>
+    <item> <name>リロードグラブル</name>
+        <item> <name>Space with HHKB</name>
             <identifier>private.space_reload_fantasy</identifier>
             <only>Chrome</only>
             <device_only>DeviceVendor::HHKB</device_only>
             <windowname_only>Granblue</windowname_only>
             <autogen>
-                --KeyToKey-- KeyCode::SPACE,
+                --KeyToKey-- KeyCode::SPACE, ModifierFlag::NONE,
 
                 KeyCode::R, ModifierFlag::COMMAND_L
             </autogen>
         </item>
-        <item>
-            <name>Option R reload on chrome for granblue fantasy</name>
+        <item> <name>⌥_R</name>
             <identifier>private.command_reload_fantasy</identifier>
             <only>Chrome</only>
             <windowname_only>Granblue</windowname_only>
@@ -65,11 +61,8 @@
         </item>
     </item>
 
-    <item>
-        <name>Mouse Settings</name>
-
-        <item>
-            <name>Reverse scroll wheel in mouse.</name>
+    <item> <name>マウスの設定</name>
+        <item> <name>Reverse mouse scrolling</name>
             <identifier>private.remap.reverse_mouse_scrolling</identifier>
             <device_only>DeviceVendor::ELECOM_Mouse</device_only>
             <autogen>
@@ -77,8 +70,7 @@
                 Option::FLIPSCROLLWHEEL_VERTICAL,
             </autogen>
         </item>
-        <item>
-            <name>SubMouseButton</name>
+        <item> <name>SubMouseButton</name>
             <identifier>remap.submouse_button</identifier>
             <autogen>
                 --PointingButtonToKey--
@@ -95,10 +87,8 @@
         </item>
     </item>
 
-    <item>
-        <name>key bind YoruFukurou</name>
-        <item>
-            <name>`I`nsert new tweet</name>
+    <item> <name>key bind YoruFukurou</name>
+        <item> <name>`I`nsert new tweet</name>
             <identifier>private.yorufukurou.insert</identifier>
             <only>YoruFukurou</only>
             <uielementrole_only>AXTable</uielementrole_only>
@@ -109,8 +99,7 @@
                 KeyCode::N, ModifierFlag::COMMAND_L
             </autogen>
         </item>
-        <item>
-            <name>`Y`ank text</name>
+        <item> <name>`Y`ank text</name>
             <identifier>private.yorufukurou.yank</identifier>
             <only>YoruFukurou</only>
             <uielementrole_only>AXTable</uielementrole_only>
@@ -121,8 +110,7 @@
                 KeyCode::C, ModifierFlag::COMMAND_L
             </autogen>
         </item>
-        <item>
-            <name>back to home `U` key</name>
+        <item> <name>back to home `U` key</name>
             <identifier>private.yorufukurou.undo</identifier>
             <only>YoruFukurou</only>
             <uielementrole_only>AXTable</uielementrole_only>
@@ -133,8 +121,7 @@
                 KeyCode::ESCAPE
             </autogen>
         </item>
-        <item>
-            <name>`O`pen Talk view</name>
+        <item> <name>`O`pen Talk view</name>
             <identifier>private.yorufukurou.open</identifier>
             <only>YoruFukurou</only>
             <uielementrole_only>AXTable</uielementrole_only>
@@ -145,8 +132,7 @@
                 KeyCode::3, ModifierFlag::COMMAND_R
             </autogen>
         </item>
-        <item>
-            <name>top to g</name>
+        <item> <name>top to g</name>
             <identifier>private.app_yorufukurou_top_g</identifier>
             <only>YoruFukurou</only>
             <uielementrole_only>AXTable</uielementrole_only>
@@ -157,23 +143,10 @@
                 KeyCode::0
             </autogen>
         </item>
-        <item>
-            <name>Disable BS</name>
-            <identifier>private.yorufukurou.disable_bs</identifier>
-            <only>YoruFukurou</only>
-            <autogen>
-                --KeyToKey--
-                KeyCode::DELETE, ModifierFlag::NONE,
-
-                KeyCode::VK_NONE
-            </autogen>
-        </item>
     </item>
 
-    <item>
-        <name>Disable keys in iTerm2</name>
-        <item>
-            <name>Disable Enter</name>
+    <item> <name>Disable keys</name>
+        <item> <name>Disable Enter</name>
             <identifier>private.iterm.disable_enter</identifier>
             <only>iTerm2</only>
             <autogen>
@@ -183,8 +156,7 @@
                 KeyCode::VK_NONE
             </autogen>
         </item>
-        <item>
-            <name>Disable Tab</name>
+        <item> <name>Disable Tab</name>
             <identifier>private.iterm.disable_tab</identifier>
             <only>iTerm2</only>
             <autogen>
@@ -194,8 +166,17 @@
                 KeyCode::VK_NONE
             </autogen>
         </item>
-        <item>
-            <name>Disable BS</name>
+        <item> <name>Disable Shift</name>
+            <identifier>private.iterm.disable_shift</identifier>
+            <only>iTerm2</only>
+            <autogen>
+                --KeyToKey--
+                KeyCode::SHIFT_L,
+
+                KeyCode::VK_NONE
+            </autogen>
+        </item>
+        <item> <name>Disable BS</name>
             <identifier>private.iterm.disable_bs</identifier>
             <only>iTerm2</only>
             <autogen>
