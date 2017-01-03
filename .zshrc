@@ -11,7 +11,6 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   export ZPLUG_LOADFILE=${HOME}/.zsh/zplug.zsh
   source ~/.zplug/init.zsh
 
-
   if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
@@ -31,9 +30,8 @@ if [[ -f ~/.anyenv/bin/anyenv ]]; then
   eval "$(anyenv init -)"
 fi
 
-autoload -U compinit
-compinit -u
-autoload -Uz colors ; colors
+autoload -U compinit; compinit -u
+autoload -Uz colors; colors
 
 # History
 # History file
