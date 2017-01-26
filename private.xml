@@ -9,6 +9,11 @@
         <equal>com.googlecode.iterm2</equal>
     </appdef>
     <appdef>
+        <appname>iTerm2_and_YoruFukurou</appname>
+        <equal>com.googlecode.iterm2</equal>
+        <equal>com.YoruFukurouProject.YoruFukurou</equal>
+    </appdef>
+    <appdef>
         <appname>Chrome</appname>
         <equal>com.google.Chrome</equal>
     </appdef>
@@ -145,10 +150,11 @@
         </item>
     </item>
 
-    <item> <name>Disable keys</name>
-        <item> <name>Disable Enter</name>
-            <identifier>private.iterm.disable_enter</identifier>
-            <only>iTerm2</only>
+    <item> <name>Seal keys</name>
+        <appendix>iTerm2 and YoruFukurou</autogen>
+        <item> <name>Seal Enter</name>
+            <identifier>private.seal.enter</identifier>
+            <only>iTerm2_and_YoruFukurou</only>
             <autogen>
                 --KeyToKey--
                 KeyCode::RETURN, ModifierFlag::NONE,
@@ -156,9 +162,9 @@
                 KeyCode::VK_NONE
             </autogen>
         </item>
-        <item> <name>Disable Tab</name>
-            <identifier>private.iterm.disable_tab</identifier>
-            <only>iTerm2</only>
+        <item> <name>Seal Tab</name>
+            <identifier>private.seal.tab</identifier>
+            <only>iTerm2_and_YoruFukurou</only>
             <autogen>
                 --KeyToKey--
                 KeyCode::TAB, ModifierFlag::NONE,
@@ -166,9 +172,9 @@
                 KeyCode::VK_NONE
             </autogen>
         </item>
-        <item> <name>Disable Shift</name>
-            <identifier>private.iterm.disable_shift</identifier>
-            <only>iTerm2</only>
+        <item> <name>Seal Shift</name>
+            <identifier>private.seal.shift</identifier>
+            <only>iTerm2_and_YoruFukurou</only>
             <autogen>
                 --KeyToKey--
                 KeyCode::SHIFT_L,
@@ -176,9 +182,9 @@
                 KeyCode::VK_NONE
             </autogen>
         </item>
-        <item> <name>Disable BS</name>
-            <identifier>private.iterm.disable_bs</identifier>
-            <only>iTerm2</only>
+        <item> <name>Seal BS</name>
+            <identifier>private.seal.bs</identifier>
+            <only>iTerm2_and_YoruFukurou</only>
             <autogen>
                 --KeyToKey--
                 KeyCode::DELETE, ModifierFlag::NONE,
@@ -188,4 +194,5 @@
         </item>
     </item>
 
+    <item> <name>-------------------------------</name> </item>
 </root>
