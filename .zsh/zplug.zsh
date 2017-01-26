@@ -12,3 +12,5 @@ zplug "~/bin", from:local, as:command, use:rpp.sh, rename-to:"rpp"
 
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# zplug "tmux-plugins/tpm", dir:"~/.anyenv/envs/pyenv/plugins/pyenv-virtualenv", if:"which pyenv"
