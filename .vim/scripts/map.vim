@@ -22,6 +22,10 @@ noremap gj <C-w>j
 noremap gk <C-w>k
 noremap gl <C-w>l
 noremap gx <C-w>x
+noremap <silent>g\| :rightbelow vnew<CR>
+noremap <silent>g-  :rightbelow new<CR>
+noremap <silent>gc  :tabnew<CR>
+noremap         go  :e 
 
 noremap *y "*y
 noremap *Y "*Y
