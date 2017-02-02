@@ -192,8 +192,11 @@ on_ft       = 'pug'
 repo        = 'keith/tmux.vim'
 on_ft       = 'tmux'
 
+# [[plugins]]
+# repo        = 'isRuslan/vim-es6'
+# on_ft       = 'javascript'
 [[plugins]]
-repo        = 'isRuslan/vim-es6'
+repo        = 'pangloss/vim-javascript'
 on_ft       = 'javascript'
 
 [[plugins]]
