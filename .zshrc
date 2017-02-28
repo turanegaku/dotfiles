@@ -6,6 +6,12 @@ bindkey -d
 
 export PATH=/usr/local/bin:$PATH
 
+# anyenv
+if [[ -f ~/.anyenv/bin/anyenv ]]; then
+  export PATH=$PATH:$HOME/.anyenv/bin
+  eval "$(anyenv init -)"
+fi
+
 # zplug
 if [[ -f ~/.zplug/init.zsh ]]; then
   export ZPLUG_LOADFILE=${HOME}/.zsh/zplug.zsh
@@ -22,12 +28,6 @@ if [[ -f ~/.zplug/init.zsh ]]; then
 
   # zplug load --verbose
   zplug load
-fi
-
-# anyenv
-if [[ -f ~/.anyenv/bin/anyenv ]]; then
-  export PATH=$PATH:$HOME/.anyenv/bin
-  eval "$(anyenv init -)"
 fi
 
 autoload -U compinit; compinit -u
