@@ -18,6 +18,10 @@ if has 'tmux'; then
   alias ta='t a -t'
 fi
 
+if has 'rlwrap'; then
+  alias gosh='rlwrap gosh'
+fi
+
 alias grep='grep --color'
 alias pgrep='ps aux | grep -v grep | grep'
 
