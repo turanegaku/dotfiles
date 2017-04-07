@@ -1,3 +1,5 @@
+if 0 | endif
+
 if exists('$SUDO_USER')
   finish
 endif
