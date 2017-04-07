@@ -9,7 +9,7 @@ export PATH=/usr/local/bin:$PATH
 # anyenv
 if [[ -f ~/.anyenv/bin/anyenv ]]; then
   export PATH=$PATH:$HOME/.anyenv/bin
-  eval "$(anyenv init -)"
+  eval "$(anyenv init - -no-rehash)"
 fi
 
 # zplug
@@ -17,20 +17,22 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   export ZPLUG_LOADFILE=${HOME}/.zsh/zplug.zsh
   source ~/.zplug/init.zsh
 
-  if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-      echo; zplug install
-    else
-      echo
-    fi
-  fi
+  # if ! zplug check --verbose; then
+  #   printf "Install? [y/N]: "
+  #   if read -q; then
+  #     echo; zplug install
+  #   else
+  #     echo
+  #   fi
+  # fi
 
   # zplug load --verbose
   zplug load
 fi
 
-autoload -U compinit; compinit -u
+if ! has compinit; then
+  autoload -U compinit; compinit -u
+fi
 autoload -Uz colors; colors
 
 # History
