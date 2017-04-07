@@ -47,6 +47,18 @@ if g:plug.ready()
   Plug 'pangloss/vim-javascript', {'for': 'javascript'}
   Plug 'othree/html5.vim', {'for': 'html'}
 
+  "" lint
+  Plug 'osyo-manga/shabadou.vim', {'for': 'python'}
+  Plug 'jceb/vim-hier', {'for': 'python'}
+  Plug 'osyo-manga/vim-watchdogs', {'for': ['c', 'cpp', 'javascript', 'python', 'ruby']}
+
+  "" completion
+  if has('python') || has('python3')
+    Plug 'davidhalter/jedi-vim', {'for': 'python'}
+  endif
+
+  Plug 'aharisu/vim_goshrepl'
+
   call plug#end()
 endif
 
@@ -109,5 +121,17 @@ let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+"" jedi-vim
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+" let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>R"
+autocmd FileType python setlocal completeopt-=preview
